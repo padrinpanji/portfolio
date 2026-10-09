@@ -140,7 +140,61 @@
             z-index: 40;
         }
 
-        ::-webkit-scrollbar {
+        /* Floating GitHub widget */
+        .gh-float-wrap {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            z-index: 45;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.6rem;
+        }
+        .gh-tip {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 0.9rem;
+            border-radius: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            color: #334155;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            pointer-events: none;
+        }
+        .gh-tip a { pointer-events: auto; }
+        .gh-float-wrap:hover .gh-tip {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .gh-float {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.15rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.92);
+            color: #fff;
+            box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gh-float:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 14px 30px -6px rgba(2, 132, 199, 0.45);
+        }
+
+@media (max-width: 640px) {
+    .gh-float { padding: 0.85rem; }
+    .gh-float-text { display: none; }
+}
+
+::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
@@ -169,6 +223,19 @@
         <div id="tooltip-body" class="font-mono text-xs text-slate-900 font-bold mt-1">
             Cluster Metric Active
         </div>
+    </div>
+
+    <!-- Floating GitHub / private-repos widget -->
+    <div class="gh-float-wrap">
+        <div class="gh-tip glass-panel">
+            <i class="fa-solid fa-lock text-amber-500"></i>
+            <span>Some repos are private</span>
+            <a href="#contact" class="text-sky-600 font-black hover:text-sky-500">— contact me</a>
+        </div>
+        <a href="https://github.com/padrinpanji" target="_blank" rel="noopener" class="gh-float" aria-label="View my code on GitHub">
+            <i class="fa-brands fa-github text-lg"></i>
+            <span class="gh-float-text font-mono text-[10px] font-bold tracking-wider">VIEW MY CODE</span>
+        </a>
     </div>
 
     <!-- Main UI Content Overlay -->
