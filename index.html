@@ -130,6 +130,27 @@
         .chip-v { background: #f5f3ff; color: #5b21b6; border-color: rgba(196, 181, 253, 0.7); }
         .chip-v:hover { box-shadow: 0 6px 14px -4px rgba(124, 58, 237, 0.35); }
 
+        /* Playbook tab switch animation */
+        .arch-enter > * {
+            animation: archRise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .arch-enter > *:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        @keyframes archRise {
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(0.985);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .arch-enter > * { animation: none; }
+        }
+
         /* 3D Canvas Hover Tooltip */
         #node-tooltip {
             position: fixed;
@@ -564,14 +585,14 @@
 
                     <!-- Playbook Selector Tabs -->
                     <div id="architecture-tabs" class="flex flex-wrap gap-2 font-mono text-xs font-bold">
-                        <button class="arch-tab active px-5 py-2.5 rounded-full glass-panel border-sky-500 text-sky-700 bg-sky-50 shadow-md transition-all" data-target="web">
+                        <button class="arch-tab active px-5 py-2.5 rounded-full glass-panel border-sky-500 text-sky-700 bg-sky-50 shadow-md transition-all" data-target="ai">
+                            <i class="fa-solid fa-robot mr-2"></i>AI WORKFLOW
+                        </button>
+                        <button class="arch-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-target="web">
                             <i class="fa-solid fa-globe mr-2"></i>WEB PLATFORMS
                         </button>
                         <button class="arch-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-target="quality">
                             <i class="fa-solid fa-shield-halved mr-2"></i>QUALITY & SPEED
-                        </button>
-                        <button class="arch-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-target="ai">
-                            <i class="fa-solid fa-robot mr-2"></i>AI WORKFLOW
                         </button>
                     </div>
                 </div>
@@ -579,7 +600,7 @@
                 <div id="architecture-display" class="glass-panel p-8 sm:p-12 rounded-3xl border-sky-200/80 shadow-2xl">
 
                     <!-- Web Platform Blueprint -->
-                    <div id="arch-web" class="arch-content grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div id="arch-web" class="arch-content hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-6">
                             <span class="px-3 py-1 bg-sky-100 text-sky-800 border border-sky-300 rounded-full font-mono text-xs font-bold">
                                 FEATURED PLAYBOOK
@@ -646,7 +667,7 @@
                     </div>
 
                     <!-- Quality Blueprint -->
-                    <div id="arch-quality" class="arch-content hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div id="arch-quality" class="arch-content hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-6">
                             <span class="px-3 py-1 bg-indigo-100 text-indigo-800 border border-indigo-300 rounded-full font-mono text-xs font-bold">
                                 QUALITY & PERFORMANCE
@@ -680,7 +701,7 @@
                     </div>
 
                     <!-- AI Workflow Blueprint -->
-                    <div id="arch-ai" class="arch-content hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div id="arch-ai" class="arch-content grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-6">
                             <span class="px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 rounded-full font-mono text-xs font-bold">
                                 AI-ASSISTED DEVELOPMENT
@@ -1502,9 +1523,14 @@
                         if (content.id === `arch-${target}`) {
                             content.classList.remove('hidden');
                             content.classList.add('grid');
+                            // replay the entrance animation on every switch
+                            content.classList.remove('arch-enter');
+                            void content.offsetWidth;
+                            content.classList.add('arch-enter');
                         } else {
                             content.classList.add('hidden');
                             content.classList.remove('grid');
+                            content.classList.remove('arch-enter');
                         }
                     });
                 });
