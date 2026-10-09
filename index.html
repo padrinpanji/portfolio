@@ -1142,7 +1142,7 @@
                 <div class="bg-slate-950 px-4 py-3 flex items-center justify-between border-b border-slate-800">
                     <div class="flex items-center gap-2 font-mono text-xs text-sky-400 font-bold">
                         <i class="fa-solid fa-terminal"></i>
-                        <span>PADRIN_COPILOT_CLI [v3.9]</span>
+                        <span>PADRIN_COPILOT_CLI [v4.0 · NLU]</span>
                     </div>
                     <button id="close-terminal-btn" class="text-slate-400 hover:text-white text-sm">
                         <i class="fa-solid fa-xmark"></i>
@@ -1151,17 +1151,18 @@
 
                 <!-- Terminal Output Container -->
                 <div id="terminal-output" class="p-4 flex-1 overflow-y-auto font-mono text-xs space-y-3 text-slate-300">
-                    <div class="text-sky-400 font-bold">// Co-pilot ready. Ask about my career — type commands or click options below.</div>
-                    <div class="text-slate-500">Available commands: /experience, /projects, /stack, /award, /contact</div>
+                    <div class="text-sky-400 font-bold">// Advanced Co-pilot ready — natural language enabled.</div>
+                    <div class="text-slate-500">Ask me anything about Padrin's career — e.g. "why hire you?", "current role", "projects", "tech stack", "award", "contact". Slash commands still work.</div>
                 </div>
 
                 <!-- Terminal Quick Action Chips -->
                 <div class="p-2 bg-slate-950/80 border-t border-slate-800 flex flex-wrap gap-2 text-[10px] font-mono font-bold">
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/20 rounded-md">/experience</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-indigo-300 hover:bg-indigo-500/20 rounded-md">/projects</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-emerald-300 hover:bg-emerald-500/20 rounded-md">/stack</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-violet-300 hover:bg-violet-500/20 rounded-md">/award</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/20 rounded-md">/contact</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/20 rounded-md">Why hire you?</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-indigo-300 hover:bg-indigo-500/20 rounded-md">Current role</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-emerald-300 hover:bg-emerald-500/20 rounded-md">Projects</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-violet-300 hover:bg-violet-500/20 rounded-md">Tech stack</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-amber-300 hover:bg-amber-500/20 rounded-md">Award</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/20 rounded-md">Contact</button>
                 </div>
 
                 <!-- Terminal Input Bar -->
@@ -1632,33 +1633,114 @@
             openTermHero.addEventListener('click', toggleTerminal);
             closeTermBtn.addEventListener('click', toggleTerminal);
 
-            const commandResponses = {
-                '/experience': '12+ years across full-stack engineering, team leadership and IT project management. Today at 99 Group (Rumah123): leading the front-end team across monetization, inquiries, SEO and tracking. Before: PT Smoets and PT Walden Global Services.',
-                '/projects': '12+ delivered builds: property management, fintech dashboards, photo-studio ops (COM Port hardware), ticketing, service center, luxury curator — plus a VB6 booking app for PT Kereta Api Indonesia.',
-                '/stack': 'At 99 Group: Next.js · React.js · TypeScript · Express.js · Golang APIs · WordPress · Strapi · REST APIs · Docker · GCP · AWS · Teleport · Vault · Grafana · Kibana. Earlier years: PHP · Laravel · Drupal · CodeIgniter · CakePHP · Yii · jQuery. Quality & process: Cypress · WebdriverIO · Git · JIRA · Agile · Google Analytics · Google Ads.',
-                '/award': 'Q1 Quarterly Award "Own It" — issued by 99 Group, March 2023, for ownership and delivery on the Rumah123 web platform.',
-                '/contact': 'Email padrinpanji@gmail.com, GitHub github.com/padrinpanji, or LinkedIn /in/r-padrin-panji-sasmito-2a592043. Open to senior engineering & IT-lead roles.'
+            // ===== Advanced Co-pilot: knowledge base + natural-language matching + streaming =====
+            const kb = [
+                { q: 'Tell me about your experience', kw: ['experience', 'career', 'background', 'history', 'journey', 'timeline', 'work'], a: "12+ years across the full delivery lifecycle — junior web developer at WGS (Drupal/Laravel), Lead Developer → Team Leader → IT Project Manager at Smoets, and now Full Stack Engineer · FE Team Lead at 99 Group (Rumah123) since Aug 2021." },
+                { q: 'What is your current role?', kw: ['current', 'now', '99', 'rumah123', 'rumah', 'srx', '99.co', 'frontend', 'fe team', 'team lead'], a: "Today I lead the front-end team on Rumah123 (99 Group) — owning monetization, inquiry funnels, SEO and tracking. Stack: Next.js, React, TypeScript, with Golang/Express APIs behind. Since Aug 2021." },
+                { kw: ['smoets', 'project manager', 'team leader', 'vendor', 'client'], q: 'Tell me about Smoets', a: "At PT Smoets (2014–2021) I grew from Lead Developer to Team Leader to IT Project Manager — building enterprise web apps, running client communication, and coordinating vendors so projects landed on time, in scope, on budget." },
+                { kw: ['wgs', 'walden', 'first job', 'started'], q: 'Where did you start?', a: "I started at PT Walden Global Services (2013–2016) building front-end and back-end websites on Drupal and Laravel, writing the technical documentation and estimating timelines as Lead Developer." },
+                { kw: ['project', 'portfolio', 'build', 'built', 'app', 'website', 'site', 'kai', 'vb6', 'angular', 'property', 'fintech', 'drupal'], q: 'What projects have you shipped?', a: "12+ shipped builds: property management (Angular 2), fintech dashboards (Laravel + MongoDB), photo-studio ops with COM Port hardware, ticketing, flash-sale, service center, luxury curator — plus a VB6 booking app for PT Kereta Api Indonesia. Filter them in the PROJECTS section above." },
+                { kw: ['stack', 'tech', 'technology', 'tools', 'framework', 'language', 'react', 'next.js', 'typescript', 'golang', 'laravel', 'php', 'wordpress'], q: 'What is your tech stack?', a: "At 99 Group: Next.js · React.js · TypeScript · Express.js · Golang APIs · WordPress · Strapi · REST APIs · Docker · GCP · AWS · Teleport · Vault · Grafana · Kibana. Earlier years: PHP · Laravel · Drupal · CodeIgniter · CakePHP · Yii · jQuery. Quality & process: Cypress · WebdriverIO · Git · JIRA · Agile." },
+                { kw: ['seo', 'monetization', 'inquiry', 'inquiries', 'tracking', 'ads', 'analytics', 'funnel', 'conversion', 'search'], q: 'What is your daily scope?', a: "My daily scope on Rumah123: inquiry funnels and contact flows, tracking and attribution, ads monetization, and technical SEO — structured data, crawlability and search visibility that keep the portal ranking and converting." },
+                { kw: ['award', 'own it', 'achievement', 'q1', 'recognition'], q: 'Any awards?', a: 'Q1 Quarterly Award "Own It" — issued by 99 Group, March 2023, for ownership and delivery on the Rumah123 web platform.' },
+                { kw: ['education', 'school', 'diploma', 'degree', 'study', 's1', 'master'], q: 'Educational background?', a: "Diploma of Software Engineering — SMK Negeri 4 Bandung (2009–2013), plus continuous learning: my capability matrix spans 40+ professional tools and technologies." },
+                { kw: ['contact', 'email', 'whatsapp', 'phone', 'reach', 'linkedin', 'github', 'cv', 'resume'], q: 'How do I contact you?', a: "Email padrinpanji@gmail.com · WhatsApp +62 856-2440-3415 · LinkedIn /in/r-padrin-panji-sasmito-2a592043 · GitHub github.com/padrinpanji — or use the contact form below, it goes straight to my WhatsApp." },
+                { kw: ['hire', 'available', 'open', 'role', 'job', 'join', 'recruit', 'hr', 'opportunity', 'vacancy', 'work together'], q: 'Are you open to roles?', a: "Yes — I'm open to senior engineering and IT-lead roles. 12+ years, FE team lead at Rumah123, PM experience, and an AI-augmented workflow. Use the contact form or WhatsApp +62 856-2440-3415." },
+                { kw: ['ai', 'agent', 'copilot', 'automation', 'chatgpt', 'llm', 'prompt'], q: 'How do you use AI?', a: "I run an AI-augmented workflow daily: agents for task breakdown, code generation, test synthesis and regression prevention — faster iteration with the same reliability standards. See the AI WORKFLOW playbook tab." },
+                { kw: ['why', 'hire', 'strength', 'best', 'choose', 'standout', 'unique', 'advantage'], q: 'Why hire Padrin?', a: "Three reasons: (1) I've sat in every seat — dev, lead, PM — so I ship with the business in mind; (2) I own conversion-critical front-end at Indonesia's property portal; (3) I pair that with an AI-augmented workflow that ships faster without lowering the quality bar." },
+                { kw: ['performance', 'cypress', 'testing', 'test', 'quality', 'web vitals'], q: 'How do you handle quality?', a: "I designed the end-to-end testing foundation with Cypress (reusable skeletons), used WebdriverIO, and enforce Core Web Vitals budgets — code splitting, asset bundling optimization and lazy loading on every release." },
+                { kw: ['hello', 'hi', 'hey', 'halo', 'pagi', 'siang', 'sore', 'greetings', 'morning'], q: 'Hello!', a: "Hello! I'm Padrin's co-pilot. Ask about my experience, projects, tech stack, award — or type contact to reach him directly." },
+                { kw: ['thank', 'thanks', 'makasih', 'terima kasih', 'great', 'awesome', 'cool', 'nice'], q: 'Thanks!', a: "Anytime! If you like what you see, the contact form goes straight to Padrin's WhatsApp." },
+                { kw: ['salary', 'gaji', 'rate', 'fee', 'expectation', 'budget', 'cost'], q: 'Salary expectations?', a: "Numbers are best discussed directly — WhatsApp +62 856-2440-3415 or padrinpanji@gmail.com." },
+                { kw: ['location', 'remote', 'hybrid', 'onsite', 'bandung', 'relocate', 'wfo'], q: 'Where are you based?', a: "Bandung, West Java, Indonesia (GMT+7). Currently hybrid at 99 Group — comfortable with remote and on-site arrangements." },
+                { kw: ['language', 'english', 'indonesia', 'bahasa'], q: 'Languages?', a: "Bahasa Indonesia (native) and English (professional working proficiency) — comfortable with international teams and documentation." }
+            ];
+
+            const slashMap = {
+                '/experience': 'experience career background',
+                '/projects': 'project portfolio build website',
+                '/stack': 'stack tech framework language',
+                '/award': 'award achievement recognition',
+                '/contact': 'contact email whatsapp linkedin',
+                '/role': 'current frontend team lead',
+                '/hire': 'hire available open role',
+                '/ai': 'ai agent workflow automation',
+                '/education': 'education diploma school',
+                '/help': 'help'
             };
 
+            function matchKB(query) {
+                let best = null;
+                let bestScore = 0;
+                const scored = [];
+                for (const e of kb) {
+                    let s = 0;
+                    for (const k of e.kw) {
+                        if (query.includes(k)) s += k.includes(' ') ? 3 : (k.length > 4 ? 2 : 1);
+                    }
+                    scored.push({ e, s });
+                    if (s > bestScore) {
+                        bestScore = s;
+                        best = e;
+                    }
+                }
+                return {
+                    best,
+                    bestScore,
+                    ranked: scored.filter(x => x.s > 0).sort((a, b) => b.s - a.s)
+                };
+            }
+
             function handleCommand(cmd) {
-                const cleanCmd = cmd.trim().toLowerCase();
+                const raw = cmd.trim();
+                if (!raw) return;
+                audioSynth.playBeep(600, 0.03, 'sine');
+
                 const userLine = document.createElement('div');
                 userLine.className = 'text-sky-400 font-bold';
-                userLine.textContent = `> ${cmd}`;
+                userLine.textContent = `> ${raw}`;
                 termOutput.appendChild(userLine);
 
-                const respLine = document.createElement('div');
-                respLine.className = 'text-slate-200 pl-3 border-l-2 border-sky-400';
-
-                if (commandResponses[cleanCmd]) {
-                    respLine.textContent = commandResponses[cleanCmd];
-                } else {
-                    respLine.textContent = `Command "${cmd}" not recognized. Available commands: /experience, /projects, /stack, /award, /contact`;
-                }
-
-                termOutput.appendChild(respLine);
+                const think = document.createElement('div');
+                think.className = 'text-slate-500';
+                think.textContent = '● analyzing…';
+                termOutput.appendChild(think);
                 termOutput.scrollTop = termOutput.scrollHeight;
-                audioSynth.playBeep(800, 0.04);
+
+                setTimeout(() => {
+                    think.remove();
+
+                    let query = raw.toLowerCase();
+                    if (query.startsWith('/')) {
+                        query = slashMap[query] || query.slice(1);
+                    }
+
+                    const { best, bestScore, ranked } = matchKB(query);
+
+                    const respLine = document.createElement('div');
+                    respLine.className = 'text-slate-200 pl-3 border-l-2 border-sky-400';
+
+                    let full;
+                    if (best && bestScore >= 2) {
+                        full = best.a;
+                    } else {
+                        const tips = ranked.slice(0, 3).map(x => `"${x.e.q}"`).join(' · ');
+                        full = `I don't have that one in my knowledge base yet. Try ${tips || '"experience", "projects", "stack", "contact"'} — or reach Padrin directly: padrinpanji@gmail.com / WhatsApp +62 856-2440-3415.`;
+                    }
+
+                    // streaming reveal, like a real AI response
+                    let i = 0;
+                    const timer = setInterval(() => {
+                        i += 4;
+                        respLine.textContent = full.slice(0, i);
+                        termOutput.scrollTop = termOutput.scrollHeight;
+                        if (i >= full.length) clearInterval(timer);
+                    }, 16);
+
+                    termOutput.appendChild(respLine);
+                    termOutput.scrollTop = termOutput.scrollHeight;
+                    audioSynth.playBeep(800, 0.04);
+                }, 420);
             }
 
             termForm.addEventListener('submit', (e) => {
