@@ -108,6 +108,28 @@
             text-shadow: 0 0 25px rgba(2, 132, 199, 0.25);
         }
 
+        /* Skill chips */
+        .chip-s, .chip-i, .chip-e, .chip-v {
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            border-width: 1px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .chip-s:hover, .chip-i:hover, .chip-e:hover, .chip-v:hover {
+            transform: translateY(-2px);
+        }
+        .chip-s { background: #f0f9ff; color: #0c4a6e; border-color: rgba(125, 211, 252, 0.7); }
+        .chip-s:hover { box-shadow: 0 6px 14px -4px rgba(2, 132, 199, 0.35); }
+        .chip-i { background: #eef2ff; color: #3730a3; border-color: rgba(165, 180, 252, 0.7); }
+        .chip-i:hover { box-shadow: 0 6px 14px -4px rgba(79, 70, 229, 0.35); }
+        .chip-e { background: #ecfdf5; color: #065f46; border-color: rgba(110, 231, 183, 0.7); }
+        .chip-e:hover { box-shadow: 0 6px 14px -4px rgba(5, 150, 105, 0.35); }
+        .chip-v { background: #f5f3ff; color: #5b21b6; border-color: rgba(196, 181, 253, 0.7); }
+        .chip-v:hover { box-shadow: 0 6px 14px -4px rgba(124, 58, 237, 0.35); }
+
         /* 3D Canvas Hover Tooltip */
         #node-tooltip {
             position: fixed;
@@ -633,81 +655,115 @@
                     <h2 class="text-3xl sm:text-5xl font-black text-slate-900">Technical & Leadership Depth</h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="glass-panel p-8 rounded-3xl space-y-6 border-sky-200">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="glass-panel p-8 rounded-3xl space-y-5 border-sky-200">
                         <h3 class="text-base font-mono font-extrabold text-sky-700 flex items-center gap-3">
-                            <i class="fa-solid fa-code text-lg"></i>
-                            <span>ENGINEERING STACK</span>
+                            <i class="fa-solid fa-brain text-lg"></i>
+                            <span>INDUSTRY KNOWLEDGE</span>
                         </h3>
-
-                        <div class="space-y-5">
-                            <div>
-                                <div class="flex justify-between text-xs font-mono font-bold text-slate-800 mb-2">
-                                    <span>Backend & CMS (WordPress, Laravel, Drupal, CodeIgniter)</span>
-                                    <span class="text-sky-700">95%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden p-0.5">
-                                    <div class="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-xs font-mono font-bold text-slate-800 mb-2">
-                                    <span>Frontend (Next.js, Angular, jQuery, HTML/CSS)</span>
-                                    <span class="text-sky-700">90%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden p-0.5">
-                                    <div class="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-xs font-mono font-bold text-slate-800 mb-2">
-                                    <span>Databases (MySQL, MongoDB, PostgreSQL)</span>
-                                    <span class="text-sky-700">88%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden p-0.5">
-                                    <div class="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full" style="width: 88%"></div>
-                                </div>
-                            </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Full-Stack Development</span>
+                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Software Implementation</span>
+                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Requirements Analysis</span>
+                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Programming</span>
+                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Web Design</span>
+                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Technical Documentation</span>
                         </div>
                     </div>
 
-                    <div class="glass-panel p-8 rounded-3xl space-y-6 border-indigo-200">
+                    <div class="glass-panel p-8 rounded-3xl space-y-5 border-indigo-200">
                         <h3 class="text-base font-mono font-extrabold text-indigo-700 flex items-center gap-3">
                             <i class="fa-solid fa-user-gear text-lg"></i>
-                            <span>QUALITY, GROWTH & LEADERSHIP</span>
+                            <span>LEADERSHIP &amp; GROWTH</span>
                         </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Project Management</span>
+                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Software Project Management</span>
+                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Project Delivery</span>
+                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Agile Methodologies</span>
+                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">JIRA</span>
+                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Google Analytics</span>
+                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Google Ads</span>
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="space-y-5">
-                            <div>
-                                <div class="flex justify-between text-xs font-mono font-bold text-slate-800 mb-2">
-                                    <span>E2E Testing (Cypress, WebdriverIO)</span>
-                                    <span class="text-indigo-700">90%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden p-0.5">
-                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-violet-600 rounded-full" style="width: 90%"></div>
-                                </div>
+                <div class="glass-panel p-8 rounded-3xl border-violet-200 space-y-6">
+                    <h3 class="text-base font-mono font-extrabold text-violet-700 flex items-center gap-3">
+                        <i class="fa-solid fa-toolbox text-lg"></i>
+                        <span>TOOLS &amp; TECHNOLOGIES</span>
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6 font-mono text-xs">
+                        <div class="space-y-2">
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Frontend</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="chip-s">Next.js</span>
+                                <span class="chip-s">React.js</span>
+                                <span class="chip-s">TypeScript</span>
+                                <span class="chip-s">jQuery</span>
+                                <span class="chip-s">HTML 5</span>
+                                <span class="chip-s">CSS3</span>
+                                <span class="chip-s">SCSS</span>
                             </div>
+                        </div>
 
-                            <div>
-                                <div class="flex justify-between text-xs font-mono font-bold text-slate-800 mb-2">
-                                    <span>IT Project Management & Delivery</span>
-                                    <span class="text-indigo-700">92%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden p-0.5">
-                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-violet-600 rounded-full" style="width: 92%"></div>
-                                </div>
+                        <div class="space-y-2">
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Backend &amp; CMS</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="chip-i">PHP</span>
+                                <span class="chip-i">Laravel</span>
+                                <span class="chip-i">CodeIgniter</span>
+                                <span class="chip-i">CakePHP</span>
+                                <span class="chip-i">Yii</span>
+                                <span class="chip-i">Drupal</span>
+                                <span class="chip-i">WordPress</span>
+                                <span class="chip-i">Strapi</span>
                             </div>
+                        </div>
 
-                            <div>
-                                <div class="flex justify-between text-xs font-mono font-bold text-slate-800 mb-2">
-                                    <span>Tracking & Growth (Google Analytics, Google Ads)</span>
-                                    <span class="text-indigo-700">85%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden p-0.5">
-                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-violet-600 rounded-full" style="width: 85%"></div>
-                                </div>
+                        <div class="space-y-2">
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">APIs &amp; Data</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="chip-e">REST APIs</span>
+                                <span class="chip-e">Express.js</span>
+                                <span class="chip-e">JSON</span>
+                                <span class="chip-e">MySQL</span>
+                                <span class="chip-e">PostgreSQL</span>
+                                <span class="chip-e">MS SQL Server</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">DevOps &amp; Cloud</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="chip-v">Docker</span>
+                                <span class="chip-v">Git</span>
+                                <span class="chip-v">Subversion</span>
+                                <span class="chip-v">Teleport</span>
+                                <span class="chip-v">Vault</span>
+                                <span class="chip-v">Google Cloud Platform</span>
+                                <span class="chip-v">AWS</span>
+                                <span class="chip-v">Zapier</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Observability</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="chip-s">Grafana</span>
+                                <span class="chip-s">Kibana</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Testing &amp; Design</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="chip-e">Cypress</span>
+                                <span class="chip-e">WebdriverIO</span>
+                                <span class="chip-e">Figma</span>
+                                <span class="chip-e">UML</span>
+                                <span class="chip-e">Graphic Design</span>
                             </div>
                         </div>
                     </div>
@@ -1266,7 +1322,7 @@
             const commandResponses = {
                 '/experience': '12+ years across full-stack engineering, team leadership and IT project management. Today at 99 Group (Rumah123): leading the front-end team across monetization, inquiries, SEO and tracking. Before: PT Smoets and PT Walden Global Services.',
                 '/projects': '12+ delivered builds: property management, fintech dashboards, photo-studio ops (COM Port hardware), ticketing, service center, luxury curator — plus a VB6 booking app for PT Kereta Api Indonesia.',
-                '/stack': 'At 99 Group: Next.js · React · Express · JavaScript · PHP · WordPress. Earlier years: Laravel · Drupal · CodeIgniter · CakePHP · Angular · jQuery. Quality & data: Cypress · WebdriverIO · MySQL · MongoDB · PostgreSQL · Google Analytics · Google Ads.',
+                '/stack': 'At 99 Group: Next.js · React.js · TypeScript · Express.js · PHP · WordPress · Strapi · REST APIs · Docker · GCP · AWS · Teleport · Vault · Grafana · Kibana. Earlier years: Laravel · Drupal · CodeIgniter · CakePHP · Yii · jQuery. Quality & process: Cypress · WebdriverIO · Git · JIRA · Agile · Google Analytics · Google Ads.',
                 '/award': 'Q1 Quarterly Award "Own It" — issued by 99 Group, March 2023, for ownership and delivery on the Rumah123 web platform.',
                 '/contact': 'Email padrinpanji@gmail.com or connect on LinkedIn: /in/r-padrin-panji-sasmito-2a592043. Open to senior engineering & IT-lead roles.'
             };
