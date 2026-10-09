@@ -312,7 +312,8 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- per-section 3D views ---------- */
 
-.view { flex: 0 0 auto; }
+.view { flex: 0 0 auto; cursor: grab; touch-action: none; }
+.view:active { cursor: grabbing; }
 
 .section-head .view {
   margin-left: auto;

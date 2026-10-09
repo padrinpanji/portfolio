@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
 const canvas = document.getElementById("scene");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -16,6 +17,31 @@ try {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 } catch {
   canvas.remove();
+}
+
+const views = [];
+
+// real, lit materials — metal + environment reflections
+function metal(color, rough = 0.25) {
+  return new THREE.MeshStandardMaterial({ color, metalness: 0.9, roughness: rough });
+}
+function glass(color, opacity = 0.3) {
+  return new THREE.MeshStandardMaterial({ color, metalness: 0.7, roughness: 0.2, transparent: true, opacity });
+}
+function edges(geo, color, opacity = 0.9) {
+  return new THREE.LineSegments(
+    new THREE.EdgesGeometry(geo),
+    new THREE.LineBasicMaterial({ color, transparent: true, opacity })
+  );
+}
+function addLights(scene) {
+  scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+  const key = new THREE.DirectionalLight(0xfff4e0, 1.2);
+  key.position.set(3, 4, 5);
+  scene.add(key);
+  const rim = new THREE.DirectionalLight(0x9be8dc, 0.5);
+  rim.position.set(-4, -2, -3);
+  scene.add(rim);
 }
 
 // ================= field scene (hero background) =================
@@ -36,9 +62,9 @@ const COUNT = COLS * ROWS;
 
 const positions = new Float32Array(COUNT * 3);
 const colors = new Float32Array(COUNT * 3);
-const teal = new THREE.Color("#0d7a6f");
-const navy = new THREE.Color("#33424c");
-const coral = new THREE.Color("#e4572e");
+const tealC = new THREE.Color("#0d7a6f");
+const navyC = new THREE.Color("#33424c");
+const coralC = new THREE.Color("#e4572e");
 
 {
   let i = 0;
@@ -51,9 +77,9 @@ const coral = new THREE.Color("#e4572e");
       positions[i * 3 + 2] = z;
 
       const t = THREE.MathUtils.clamp((x + 25) / 50, 0, 1);
-      const col = navy.clone().lerp(teal, t);
+      const col = navyC.clone().lerp(tealC, t);
       if (Math.abs(x) < 3.2) {
-        col.lerp(coral, 0.55 * (1 - Math.abs(x) / 3.2));
+        col.lerp(coralC, 0.55 * (1 - Math.abs(x) / 3.2));
       }
       colors[i * 3] = col.r;
       colors[i * 3 + 1] = col.g;
@@ -81,19 +107,23 @@ const field = new THREE.Points(
 field.position.y = -1.6;
 fieldWorld.add(field);
 
-const ico = new THREE.Mesh(
-  new THREE.IcosahedronGeometry(1.7, 1),
-  new THREE.MeshBasicMaterial({ color: TEAL, wireframe: true, transparent: true, opacity: 0.18 })
-);
-ico.position.set(3.1, 1.5, 0.4);
-fieldWorld.add(ico);
-
 const knot = new THREE.Mesh(
-  new THREE.TorusKnotGeometry(0.62, 0.2, 90, 12),
-  new THREE.MeshBasicMaterial({ color: CORAL, wireframe: true, transparent: true, opacity: 0.3 })
+  new THREE.TorusKnotGeometry(0.62, 0.2, 120, 20),
+  metal(CORAL, 0.18)
 );
 knot.position.set(-3.6, 0.6, -1.5);
 fieldWorld.add(knot);
+
+const icoWire = new THREE.Mesh(
+  new THREE.IcosahedronGeometry(1.7, 1),
+  new THREE.MeshBasicMaterial({ color: TEAL, wireframe: true, transparent: true, opacity: 0.16 })
+);
+icoWire.position.set(3.1, 1.5, 0.4);
+fieldWorld.add(icoWire);
+
+const icoCore = new THREE.Mesh(new THREE.IcosahedronGeometry(1.5, 0), metal(TEAL, 0.28));
+icoCore.position.copy(icoWire.position);
+fieldWorld.add(icoCore);
 
 // pointer ripple on the field
 const ndc = new THREE.Vector2();
@@ -102,7 +132,7 @@ const planeY = new THREE.Plane(new THREE.Vector3(0, 1, 0), 1.6);
 const hit = new THREE.Vector3();
 const ripple = { cx: 0, cz: 0, tx: 0, tz: 0, s: 0, ts: 0 };
 
-if (!reduceMotion && finePointer) {
+if (finePointer) {
   window.addEventListener("pointermove", (e) => {
     mouse.tx = (e.clientX / window.innerWidth) * 2 - 1;
     mouse.ty = (e.clientY / window.innerHeight) * 2 - 1;
@@ -113,6 +143,16 @@ if (!reduceMotion && finePointer) {
     ripple.ts = 0;
   });
 }
+
+// click splash — bursts the wave wherever there is no link/button/card
+window.addEventListener("pointerdown", (e) => {
+  if (e.target.closest("a, button, .card, .view, .site-header, input, textarea")) return;
+  mouse.tx = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.ty = (e.clientY / window.innerHeight) * 2 - 1;
+  ndc.set(mouse.tx, -mouse.ty);
+  ripple.ts = 1;
+  ripple.s = Math.min(ripple.s + 1.8, 3);
+});
 
 function updateField(elapsed) {
   if (ripple.ts > 0) {
@@ -125,7 +165,7 @@ function updateField(elapsed) {
   }
   ripple.cx += (ripple.tx - ripple.cx) * 0.12;
   ripple.cz += (ripple.tz - ripple.cz) * 0.12;
-  ripple.s += (ripple.ts - ripple.s) * 0.06;
+  ripple.s += (ripple.ts - ripple.s) * 0.05;
 
   const bump = ripple.s * 1.25;
   const pos = fieldGeo.attributes.position.array;
@@ -154,36 +194,20 @@ function updateField(elapsed) {
   fieldCamera.position.y = 1.2 - mouse.y * 0.35 + progress * 0.8;
   fieldCamera.lookAt(0, 0.4, -2);
 
-  ico.rotation.x = elapsed * 0.12;
-  ico.rotation.y = elapsed * 0.18;
+  icoCore.rotation.x = elapsed * 0.1;
+  icoCore.rotation.y = elapsed * 0.16;
+  icoWire.rotation.x = elapsed * 0.12;
+  icoWire.rotation.y = elapsed * 0.18;
   knot.rotation.x = -elapsed * 0.1;
   knot.rotation.y = elapsed * 0.14;
 }
 
 // ================= per-section emblem scenes =================
 
-const views = [];
-
-function registerView(el, build) {
-  if (!el) return;
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 50);
-  camera.position.set(0, 0, 6);
-  const update = build(scene, camera);
-  views.push({ el, scene, camera, update });
-}
-
-function edges(geo, color, opacity = 0.9) {
-  return new THREE.LineSegments(
-    new THREE.EdgesGeometry(geo),
-    new THREE.LineBasicMaterial({ color, transparent: true, opacity })
-  );
-}
-
-// 01 About — network graph: a career of connected people and systems
+// 01 About — network graph of connected people and systems
 function buildNetwork(scene) {
   const group = new THREE.Group();
-  const nodeGeo = new THREE.SphereGeometry(0.09, 12, 12);
+  const nodeGeo = new THREE.SphereGeometry(0.1, 20, 20);
   const pts = [];
   for (let i = 0; i < 14; i++) {
     const a = i * 2.4;
@@ -193,10 +217,7 @@ function buildNetwork(scene) {
       Math.sin(a * 0.7) * 1.7 * (0.3 + (i % 3) * 0.25)
     );
     pts.push(p);
-    const node = new THREE.Mesh(
-      nodeGeo,
-      new THREE.MeshBasicMaterial({ color: i % 4 === 0 ? CORAL : TEAL })
-    );
+    const node = new THREE.Mesh(nodeGeo, metal(i % 4 === 0 ? CORAL : TEAL, 0.3));
     node.position.copy(p);
     group.add(node);
   }
@@ -221,7 +242,7 @@ function buildNetwork(scene) {
   };
 }
 
-// 02 Experience — career stack that assembles as you scroll through the section
+// 02 Experience — career stack assembling as you scroll
 function buildTower(scene) {
   const group = new THREE.Group();
   const layers = [];
@@ -229,10 +250,7 @@ function buildTower(scene) {
   for (let i = 0; i < 5; i++) {
     const geo = new THREE.BoxGeometry(1.7 - i * 0.08, 0.26, 1.7 - i * 0.08);
     const holder = new THREE.Group();
-    holder.add(
-      new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: layerColors[i], transparent: true, opacity: 0.14 })),
-      edges(geo, layerColors[i])
-    );
+    holder.add(new THREE.Mesh(geo, glass(layerColors[i], 0.35)), edges(geo, layerColors[i]));
     holder.position.y = -1.2 + i * 0.6;
     holder.visible = false;
     group.add(holder);
@@ -250,7 +268,7 @@ function buildTower(scene) {
   };
 }
 
-// 03 Projects — a ring of floating builds
+// 03 Projects — ring of metal builds
 function buildCubes(scene) {
   const group = new THREE.Group();
   const cubes = [];
@@ -258,10 +276,7 @@ function buildCubes(scene) {
     const geo = new THREE.BoxGeometry(0.38, 0.38, 0.38);
     const color = i % 3 === 0 ? CORAL : TEAL;
     const holder = new THREE.Group();
-    holder.add(
-      new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.14 })),
-      edges(geo, color, 0.85)
-    );
+    holder.add(new THREE.Mesh(geo, metal(color, 0.3)), edges(geo, color, 0.5));
     const a = (i / 8) * Math.PI * 2;
     holder.position.set(Math.cos(a) * 1.5, 0, Math.sin(a) * 1.5);
     group.add(holder);
@@ -286,13 +301,8 @@ function buildGlobe(scene) {
     new THREE.MeshBasicMaterial({ color: TEAL, wireframe: true, transparent: true, opacity: 0.28 })
   );
   const pivot = new THREE.Group();
-  pivot.add(
-    new THREE.Mesh(
-      new THREE.TorusGeometry(1.35, 0.02, 8, 64),
-      new THREE.MeshBasicMaterial({ color: CORAL, transparent: true, opacity: 0.7 })
-    )
-  );
-  const dot = new THREE.Mesh(new THREE.SphereGeometry(0.07, 10, 10), new THREE.MeshBasicMaterial({ color: CORAL }));
+  pivot.add(new THREE.Mesh(new THREE.TorusGeometry(1.35, 0.035, 16, 72), metal(CORAL, 0.2)));
+  const dot = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), metal(CORAL, 0.25));
   dot.position.set(1.35, 0, 0);
   pivot.add(dot);
   group.add(globe, pivot);
@@ -308,22 +318,19 @@ function buildGlobe(scene) {
 // 05 Skills — everything in orbit around the craft
 function buildOrbit(scene) {
   const group = new THREE.Group();
-  const core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.34, 0), new THREE.MeshBasicMaterial({ color: CORAL, wireframe: true }));
+  const core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.34, 0), metal(CORAL, 0.2));
   group.add(core);
   const rings = [];
   [[0.85, TEAL, 1], [1.2, INK, 2], [1.55, TEAL, 3]].forEach(([r, color, n], idx) => {
     const pivot = new THREE.Group();
     pivot.add(
       new THREE.Mesh(
-        new THREE.TorusGeometry(r, 0.015, 6, 72),
-        new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.4 })
+        new THREE.TorusGeometry(r, 0.02, 12, 72),
+        new THREE.MeshStandardMaterial({ color, metalness: 0.85, roughness: 0.3, transparent: true, opacity: 0.7 })
       )
     );
     for (let k = 0; k < n; k++) {
-      const moon = new THREE.Mesh(
-        new THREE.SphereGeometry(0.06, 10, 10),
-        new THREE.MeshBasicMaterial({ color: idx === 1 ? CORAL : TEAL })
-      );
+      const moon = new THREE.Mesh(new THREE.SphereGeometry(0.065, 16, 16), metal(idx === 1 ? CORAL : TEAL, 0.3));
       const a = (k / n) * Math.PI * 2;
       moon.position.set(Math.cos(a) * r, Math.sin(a) * r, 0);
       pivot.add(moon);
@@ -350,16 +357,21 @@ function buildBeacon(scene) {
   const rings = [];
   for (let i = 0; i < 3; i++) {
     const ring = new THREE.Mesh(
-      new THREE.TorusGeometry(0.55, 0.02, 8, 64),
-      new THREE.MeshBasicMaterial({ color: CORAL, transparent: true, opacity: 0.7 })
+      new THREE.TorusGeometry(0.55, 0.025, 12, 64),
+      new THREE.MeshStandardMaterial({
+        color: CORAL,
+        emissive: CORAL,
+        emissiveIntensity: 0.45,
+        metalness: 0.6,
+        roughness: 0.35,
+        transparent: true,
+        opacity: 0.7,
+      })
     );
     group.add(ring);
     rings.push(ring);
   }
-  const core = new THREE.Mesh(
-    new THREE.SphereGeometry(0.16, 16, 16),
-    new THREE.MeshBasicMaterial({ color: TEAL })
-  );
+  const core = new THREE.Mesh(new THREE.SphereGeometry(0.16, 24, 24), metal(TEAL, 0.2));
   group.add(core);
   group.rotation.x = 0.55;
   scene.add(group);
@@ -374,18 +386,68 @@ function buildBeacon(scene) {
   };
 }
 
-registerView(document.querySelector('[data-scene="about"]'), buildNetwork);
-registerView(document.querySelector('[data-scene="experience"]'), buildTower);
-registerView(document.querySelector('[data-scene="projects"]'), buildCubes);
-registerView(document.querySelector('[data-scene="education"]'), buildGlobe);
-registerView(document.querySelector('[data-scene="skills"]'), buildOrbit);
-registerView(document.querySelector('[data-scene="contact"]'), buildBeacon);
-
 // ================= single renderer, many scenes =================
 
 if (renderer) {
-  renderer.setClearColor(0x000000, 0);
-  renderer.autoClear = false;
+  // shared studio reflections for every metallic material
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  pmrem.dispose();
+  fieldScene.environment = envTex;
+  addLights(fieldScene);
+
+  function registerView(el, build) {
+    if (!el) return;
+    const scene = new THREE.Scene();
+    scene.environment = envTex;
+    addLights(scene);
+    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 50);
+    camera.position.set(0, 0, 6);
+    const wrap = new THREE.Group(); // drag/hover layer around the emblem
+    scene.add(wrap);
+    const update = build(wrap);
+    const state = { el, scene, camera, wrap, update, rotX: 0, rotY: 0, velX: 0, velY: 0, scale: 1, tscale: 1, dragging: false };
+    views.push(state);
+    attachDrag(state);
+  }
+
+  function attachDrag(v) {
+    const el = v.el;
+    let px = 0, py = 0;
+    el.addEventListener("pointerdown", (e) => {
+      v.dragging = true;
+      px = e.clientX;
+      py = e.clientY;
+      el.setPointerCapture(e.pointerId);
+    });
+    el.addEventListener("pointermove", (e) => {
+      if (!v.dragging) return;
+      v.velY = (e.clientX - px) * 0.005;
+      v.velX = (e.clientY - py) * 0.005;
+      px = e.clientX;
+      py = e.clientY;
+      v.rotY += v.velY;
+      v.rotX += v.velX;
+    });
+    const end = () => {
+      v.dragging = false;
+    };
+    el.addEventListener("pointerup", end);
+    el.addEventListener("pointercancel", end);
+    el.addEventListener("pointerenter", () => {
+      v.tscale = 1.08;
+    });
+    el.addEventListener("pointerleave", () => {
+      v.tscale = 1;
+    });
+  }
+
+  registerView(document.querySelector('[data-scene="about"]'), buildNetwork);
+  registerView(document.querySelector('[data-scene="experience"]'), buildTower);
+  registerView(document.querySelector('[data-scene="projects"]'), buildCubes);
+  registerView(document.querySelector('[data-scene="education"]'), buildGlobe);
+  registerView(document.querySelector('[data-scene="skills"]'), buildOrbit);
+  registerView(document.querySelector('[data-scene="contact"]'), buildBeacon);
 
   function resize() {
     fieldCamera.aspect = window.innerWidth / window.innerHeight;
@@ -408,6 +470,18 @@ if (renderer) {
     for (const v of views) {
       const rect = v.el.getBoundingClientRect();
       if (rect.width === 0 || rect.bottom < 0 || rect.top > window.innerHeight) continue;
+
+      if (!v.dragging) {
+        v.rotY += v.velY;
+        v.rotX += v.velX;
+        v.velY *= 0.94;
+        v.velX *= 0.94;
+      }
+      v.rotX = THREE.MathUtils.clamp(v.rotX, -0.8, 0.8);
+      v.wrap.rotation.set(v.rotX, v.rotY, 0);
+      v.scale += (v.tscale - v.scale) * 0.1;
+      v.wrap.scale.setScalar(v.scale);
+
       const left = rect.left;
       const bottom = window.innerHeight - rect.bottom;
       renderer.setViewport(left, bottom, rect.width, rect.height);
