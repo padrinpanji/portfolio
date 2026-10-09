@@ -1,0 +1,51 @@
+# Padrin Panji Sasmito — Full Stack Engineer & IT Manager
+
+> Full Stack Engineer leading the front-end team on Rumah123 (99 Group) in Bandung, Indonesia.
+> 12+ years across full-stack engineering, team leadership and IT project management.
+> Open to senior engineering and IT-lead roles.
+
+## Contact
+
+- Email: padrinpanji@gmail.com
+- WhatsApp: +62 856-2440-3415
+- LinkedIn: https://www.linkedin.com/in/r-padrin-panji-sasmito-2a592043
+- GitHub: https://github.com/padrinpanji
+- Location: Bandung, West Java, Indonesia (GMT+7, hybrid)
+
+## Current role
+
+- **Full Stack Engineer · Front-End Team Lead** at 99 Group (99.co | Rumah123 | SRX), Aug 2021 – Present
+- Scope: leading the front-end team across monetization, inquiry funnels, SEO and tracking
+
+## Career history
+
+- **99 Group (99.co | Rumah123 | SRX)** — Full Stack Engineer, Aug 2021 – Present
+- **PT Smoets Teknologi Outsourcing** — Lead Developer → Team Leader → IT Project Manager, Aug 2014 – Jul 2021
+- **PT Walden Global Services** — Developer → Lead Developer, Jul 2013 – Jul 2016
+- **QITS Indonesia** — Android & PHP Programmer (internship), Oct – Dec 2012
+
+## Education
+
+- Diploma of Software Engineering — SMK Negeri 4 Bandung (2009 – 2013)
+
+## Selected projects
+
+- Property Management Website — Angular 2.0, REST API, D3.js, PrimeNG
+- Fintech Website — Laravel 5.3, MongoDB, Highcharts, memory caching
+- Photo Studio Management — Laravel 5.2, MySQL, COM Port hardware integration
+- Flash Sale Website — WordPress, jQuery
+- Ticketing Website — osTicket, jQuery
+- Service Center Website — Laravel 4
+- Luxury Curator Website — CakePHP 2.0, PostgreSQL
+- Industrial Tractors Website — Drupal 7
+- Artist & Cultural Website — Drupal 7
+- Urban Fitness Website — Drupal 7
+- Promotion Theme — CSS3, HTML5, jQuery
+- Booking & Bidding Application — Visual Basic 6.0 (PT Kereta Api Indonesia)
+
+## Core skills
+
+Full-Stack Development, Next.js, React.js, TypeScript, Express.js, Golang, PHP, Laravel, Drupal,
+WordPress, Strapi, REST APIs, MySQL, PostgreSQL, Cypress, WebdriverIO, Docker, Git,
+Google Cloud Platform, AWS, Grafana, Kibana, SEO, Google Analytics, Google Ads,
+IT Project Management, Agile Methodologies

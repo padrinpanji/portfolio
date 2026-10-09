@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://padrinpanji.github.io/portfolio/sitemap.xml
