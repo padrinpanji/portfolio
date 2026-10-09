@@ -1026,17 +1026,17 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="space-y-2 font-mono text-xs font-bold">
                                 <label class="text-slate-800">FULL NAME *</label>
-                                <input type="text" required placeholder="Your name" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm">
+                                <input type="text" id="cf-name" required placeholder="Your name" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm">
                             </div>
                             <div class="space-y-2 font-mono text-xs font-bold">
                                 <label class="text-slate-800">EMAIL *</label>
-                                <input type="email" required placeholder="you@company.com" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm">
+                                <input type="email" id="cf-email" required placeholder="you@company.com" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm">
                             </div>
                         </div>
 
                         <div class="space-y-2 font-mono text-xs font-bold">
                             <label class="text-slate-800">ENGAGEMENT TYPE</label>
-                            <select class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm">
+                            <select id="cf-type" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm">
                                 <option>Full-Time Role (Senior / Lead Engineer)</option>
                                 <option>IT Management Role</option>
                                 <option>Project & Consulting Work</option>
@@ -1046,7 +1046,7 @@
 
                         <div class="space-y-2 font-mono text-xs font-bold">
                             <label class="text-slate-800">MESSAGE *</label>
-                            <textarea rows="4" required placeholder="Tell me about the platform, the team, or the role..." class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm"></textarea>
+                            <textarea id="cf-message" rows="4" required placeholder="Tell me about the platform, the team, or the role..." class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm"></textarea>
                         </div>
 
                         <button type="submit" class="btn-sfx w-full py-4 rounded-xl bg-gradient-to-r from-sky-600 via-indigo-600 to-blue-600 text-white font-mono text-xs font-extrabold tracking-widest uppercase transition-all hover:shadow-xl hover:shadow-sky-500/30">
@@ -1055,12 +1055,13 @@
                     </form>
 
                     <div id="contact-alert" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-mono font-bold text-center">
-                        <i class="fa-solid fa-circle-check mr-2"></i> Message saved locally — I'll get back to you soon. For anything urgent, email me directly below.
+                        <i class="fa-brands fa-whatsapp mr-2"></i> Opening WhatsApp with your message — just press send there.
                     </div>
 
                     <div class="mt-6 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs font-bold">
                         <span class="text-slate-500">PREFER DIRECT?</span>
                         <div class="flex flex-wrap items-center gap-4">
+                            <a href="https://wa.me/6285624403415" target="_blank" rel="noopener" class="text-emerald-700 hover:text-emerald-600 transition-colors"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</a>
                             <a href="mailto:padrinpanji@gmail.com" class="text-sky-700 hover:text-sky-600 transition-colors"><i class="fa-solid fa-envelope mr-2"></i>padrinpanji@gmail.com</a>
                             <a href="https://www.linkedin.com/in/r-padrin-panji-sasmito-2a592043" target="_blank" rel="noopener" class="text-indigo-700 hover:text-sky-600 transition-colors"><i class="fa-brands fa-linkedin mr-2"></i>LinkedIn</a>
                             <a href="https://github.com/padrinpanji" target="_blank" rel="noopener" class="text-slate-700 hover:text-sky-600 transition-colors"><i class="fa-brands fa-github mr-2"></i>GitHub</a>
@@ -1527,13 +1528,27 @@
                 });
             });
 
-            // Contact Form
+            // Contact Form → WhatsApp
             const contactForm = document.getElementById('contact-form');
             const contactAlert = document.getElementById('contact-alert');
+            const waNumber = '6285624403415';
 
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 audioSynth.playBeep(900, 0.1, 'sine');
+
+                const name = document.getElementById('cf-name').value.trim();
+                const email = document.getElementById('cf-email').value.trim();
+                const type = document.getElementById('cf-type').value;
+                const message = document.getElementById('cf-message').value.trim();
+
+                const text =
+                    `Hi Padrin, I'm ${name} (${email}).\n\n` +
+                    `Engagement: ${type}\n\n` +
+                    message;
+
+                window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+
                 contactAlert.classList.remove('hidden');
                 contactForm.reset();
                 setTimeout(() => contactAlert.classList.add('hidden'), 6000);
