@@ -200,7 +200,7 @@
                     <a href="#impact" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">02.</span> IMPACT</a>
                     <a href="#architecture" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">03.</span> PLAYBOOKS</a>
                     <a href="#skills" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">04.</span> CAPABILITIES</a>
-                    <a href="#calculator" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">05.</span> ESTIMATOR</a>
+                    <a href="#projects" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">05.</span> PROJECTS</a>
                 </div>
 
                 <!-- Action Controls HUD -->
@@ -236,7 +236,7 @@
                 <a href="#impact" class="mobile-link text-slate-800 hover:text-sky-600 py-1">02. IMPACT & TIMELINE</a>
                 <a href="#architecture" class="mobile-link text-slate-800 hover:text-sky-600 py-1">03. DELIVERY PLAYBOOKS</a>
                 <a href="#skills" class="mobile-link text-slate-800 hover:text-sky-600 py-1">04. CAPABILITY MATRIX</a>
-                <a href="#calculator" class="mobile-link text-slate-800 hover:text-sky-600 py-1">05. AI DELIVERY ESTIMATOR</a>
+                <a href="#projects" class="mobile-link text-slate-800 hover:text-sky-600 py-1">05. SELECTED PROJECTS</a>
                 <a href="#contact" class="mobile-link text-sky-600 font-black py-1 flex items-center justify-between border-t border-slate-200 pt-3">
                     <span>06. GET IN TOUCH</span>
                     <i class="fa-solid fa-paper-plane"></i>
@@ -771,62 +771,191 @@
             </div>
         </section>
 
-        <section id="calculator" class="min-h-screen flex items-center px-6 py-28">
-            <div class="max-w-4xl mx-auto w-full glass-panel p-8 sm:p-12 rounded-3xl space-y-8 border-sky-300 shadow-2xl">
+        <section id="projects" class="min-h-screen flex items-center px-6 py-28">
+            <div class="max-w-6xl mx-auto w-full space-y-12">
 
-                <div class="text-center space-y-3">
-                    <div class="inline-flex items-center gap-2 text-sky-700 font-mono text-xs font-bold tracking-widest uppercase">
-                        <i class="fa-solid fa-calculator"></i>
-                        <span>05. REAL-TIME VALUE ESTIMATOR</span>
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">AI-Assisted Delivery Estimator</h2>
-                    <p class="text-slate-600 text-xs sm:text-sm">Adjust the parameters to see how many engineering hours an AI-augmented workflow could free — and watch the backdrop react live.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-2">
-                    <div class="space-y-6 font-mono text-xs font-bold">
-                        <div>
-                            <div class="flex justify-between text-slate-800 mb-2">
-                                <label for="team-size">Engineering Team Size:</label>
-                                <span id="team-size-label" class="text-sky-700 font-extrabold">30 Engineers</span>
-                            </div>
-                            <input type="range" id="team-size" min="5" max="250" value="30" class="w-full accent-sky-600 bg-slate-200 h-2.5 rounded-lg cursor-pointer">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+                    <div class="space-y-3">
+                        <div class="inline-flex items-center gap-2 text-sky-700 font-mono text-xs font-bold tracking-widest uppercase">
+                            <i class="fa-solid fa-cubes"></i>
+                            <span>05. SELECTED PROJECTS</span>
                         </div>
-
-                        <div>
-                            <div class="flex justify-between text-slate-800 mb-2">
-                                <label for="hours-month">Hours per Engineer / Month:</label>
-                                <span id="hours-month-label" class="text-sky-700 font-extrabold">160 Hours</span>
-                            </div>
-                            <input type="range" id="hours-month" min="80" max="200" step="5" value="160" class="w-full accent-sky-600 bg-slate-200 h-2.5 rounded-lg cursor-pointer">
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between text-slate-800 mb-2">
-                                <label for="automation">AI-Assisted Automation (%):</label>
-                                <span id="automation-label" class="text-sky-700 font-extrabold">40%</span>
-                            </div>
-                            <input type="range" id="automation" min="10" max="75" step="5" value="40" class="w-full accent-sky-600 bg-slate-200 h-2.5 rounded-lg cursor-pointer">
-                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-black text-slate-900">Shipped &amp; Delivered</h2>
                     </div>
 
-                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-sky-300 shadow-xl bg-white/80">
-                        <div class="space-y-4 font-mono">
-                            <div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">// ENGINEERING HOURS FREED PER YEAR</div>
-                            <div id="savings-display" class="text-3xl sm:text-5xl font-black text-emerald-600 text-glow">
-                                9,216 Hours
-                            </div>
-                            <p class="text-slate-600 text-xs font-sans leading-relaxed">
-                                Illustrative estimate based on AI-assisted task breakdown, code generation, test synthesis and regression prevention — time reinvested in shipping features.
-                            </p>
-                        </div>
-
-                        <a href="#contact" class="btn-sfx mt-6 w-full py-3.5 bg-gradient-to-r from-sky-600 via-indigo-600 to-blue-600 text-white text-center font-mono text-xs font-extrabold rounded-xl hover:shadow-lg hover:shadow-sky-500/30 transition-all">
-                            DISCUSS YOUR TEAM
-                        </a>
+                    <div id="project-tabs" class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <button class="proj-tab active px-5 py-2.5 rounded-full glass-panel border-sky-500 text-sky-700 bg-sky-50 shadow-md transition-all" data-filter="all">ALL</button>
+                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-filter="php">PHP &amp; LARAVEL</button>
+                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-filter="cms">CMS &amp; DRUPAL</button>
+                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-filter="js">JS &amp; ANGULAR</button>
+                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-filter="classic">CLASSIC</button>
                     </div>
                 </div>
 
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="js">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">JUL 2017 — DEC 2017</span>
+                            <i class="fa-solid fa-building text-sky-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Property Management Website</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Full property management platform — from concept to delivery at Smoets.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">Angular 2.0</span>
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">REST API</span>
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">D3.js</span>
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">PrimeNG</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">JAN 2017 — MAR 2017</span>
+                            <i class="fa-solid fa-chart-line text-indigo-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Fintech Website</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Financial data platform with interactive charting and memory caching for fast dashboards.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">Laravel 5.3</span>
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">MongoDB</span>
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">Highcharts</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">JUN 2016 — JUN 2017</span>
+                            <i class="fa-solid fa-camera text-emerald-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Photo Studio Management</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Studio operations system that talks to physical equipment over COM Port — software meeting hardware.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">Laravel 5.2</span>
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">MySQL</span>
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">COM Port</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">MAY 2016 — PRESENT</span>
+                            <i class="fa-solid fa-bolt text-sky-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Flash Sale Website</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">WordPress flash-sale site with custom theming for campaign-driven commerce.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">WordPress</span>
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">NOV 2015 — PRESENT</span>
+                            <i class="fa-solid fa-ticket text-indigo-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Ticketing Website</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Support ticketing built on osTicket, customized with jQuery to fit the workflow.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">osTicket</span>
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">OCT 2015 — JUN 2016</span>
+                            <i class="fa-solid fa-screwdriver-wrench text-emerald-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Service Center Website</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Service center management site built at Walden Global Services.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">Laravel 4</span>
+                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">MAY 2015 — JUN 2016</span>
+                            <i class="fa-solid fa-tractor text-sky-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Industrial Tractors Website</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Heavy equipment showcase site built on Drupal 7 at WGS.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">Drupal 7</span>
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="classic">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">JAN 2016 — FEB 2016</span>
+                            <i class="fa-solid fa-gem text-violet-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Luxury Curator Website</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Curated luxury goods site with PostgreSQL under the hood.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-violet-50 text-violet-700 border border-violet-200 rounded font-mono text-[10px] font-bold">CakePHP 2.0</span>
+                            <span class="px-2 py-0.5 bg-violet-50 text-violet-700 border border-violet-200 rounded font-mono text-[10px] font-bold">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="js">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">SEP 2013 — PRESENT</span>
+                            <i class="fa-solid fa-window-maximize text-sky-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Promotion Theme</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Flat-design HTML5/CSS3 theme with custom jQuery — inspired by the Windows 8 look.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">CSS3</span>
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">HTML5</span>
+                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">APR 2017 — MAY 2017</span>
+                            <i class="fa-solid fa-palette text-indigo-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Artist &amp; Cultural Website</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Artist and cultural content site built on Drupal 7 at Smoets.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">Drupal 7</span>
+                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">JAN 2017 — MAR 2017</span>
+                            <i class="fa-solid fa-dumbbell text-emerald-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Urban Fitness Website</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Fitness brand website built on Drupal 7 at Smoets.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">Drupal 7</span>
+                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="classic">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] text-slate-500 font-bold">JAN 2012 — PRESENT</span>
+                            <i class="fa-solid fa-train text-violet-500"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Booking &amp; Bidding Application</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Desktop app regulating goods purchase and auctions for PT Kereta Api Indonesia — my first shipped software, started at SMK.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-violet-50 text-violet-700 border border-violet-200 rounded font-mono text-[10px] font-bold">Visual Basic 6.0</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -1362,37 +1491,29 @@
                 });
             });
 
-            // Delivery Estimator Slider Logic
-            const teamInput = document.getElementById('team-size');
-            const hoursInput = document.getElementById('hours-month');
-            const autoInput = document.getElementById('automation');
+            // Selected Projects Filter Logic
+            const projTabs = document.querySelectorAll('.proj-tab');
+            const projCards = document.querySelectorAll('.proj-card');
 
-            const teamLabel = document.getElementById('team-size-label');
-            const hoursLabel = document.getElementById('hours-month-label');
-            const autoLabel = document.getElementById('automation-label');
-            const savingsDisplay = document.getElementById('savings-display');
+            projTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    audioSynth.playSwoosh();
+                    projTabs.forEach(t => {
+                        t.classList.remove('active', 'border-sky-500', 'text-sky-700', 'bg-sky-50', 'shadow-md');
+                        t.classList.add('text-slate-600');
+                    });
+                    tab.classList.add('active', 'border-sky-500', 'text-sky-700', 'bg-sky-50', 'shadow-md');
 
-            function updateROI() {
-                const team = parseInt(teamInput.value);
-                const hours = parseInt(hoursInput.value);
-                const auto = parseInt(autoInput.value);
-
-                teamLabel.textContent = `${team} Engineers`;
-                hoursLabel.textContent = `${hours} Hours`;
-                autoLabel.textContent = `${auto}%`;
-
-                const annualHours = team * hours * 12;
-                const freed = Math.round(annualHours * (auto / 100) * 0.4);
-
-                savingsDisplay.textContent = `${freed.toLocaleString()} Hours`;
-
-                particleSpeedFactor = 1 + (auto / 25);
-                audioSynth.playBeep(450 + auto * 4, 0.02, 'sine');
-            }
-
-            teamInput.addEventListener('input', updateROI);
-            hoursInput.addEventListener('input', updateROI);
-            autoInput.addEventListener('input', updateROI);
+                    const filter = tab.getAttribute('data-filter');
+                    projCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-cat') === filter) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
 
             // Contact Form
             const contactForm = document.getElementById('contact-form');
