@@ -206,6 +206,28 @@
         ::-webkit-scrollbar-thumb { background: #283548; }
         ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
 
+        /* Shimmer sweep on the role badge */
+        .shimmer-badge {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.45);
+        }
+        .shimmer-badge::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.4) 50%, transparent 65%);
+            transform: translateX(-120%);
+            animation: shimmerSweep 3s ease-in-out infinite;
+        }
+        @keyframes shimmerSweep {
+            0% { transform: translateX(-120%); }
+            55%, 100% { transform: translateX(120%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .shimmer-badge::after { animation: none; }
+        }
+
         /* Skill chips */
         .chip-s, .chip-i, .chip-e, .chip-v {
             padding: 0.375rem 0.75rem;
@@ -544,9 +566,9 @@
                         <div class="w-44 h-44 mx-auto rounded-full bg-gradient-to-tr from-sky-500 via-indigo-600 to-violet-600 p-[3px] shadow-xl shadow-sky-500/20">
                             <img src="profile-square.jpg" onerror="this.onerror=null;this.src='https://github.com/padrinpanji.png';" alt="Padrin Panji Sasmito" class="w-full h-full rounded-full object-cover bg-slate-900" />
                         </div>
-                        <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-900 text-white font-mono text-[10px] font-bold tracking-wider whitespace-nowrap shadow-md">FE TEAM LEAD @ RUMAH123</span>
+                        <span class="shimmer-badge absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-900 text-white font-mono text-[10px] font-bold tracking-wider whitespace-nowrap shadow-md">FE TEAM LEAD @ RUMAH123</span>
                     </div>
-                    <div class="glass-panel p-8 rounded-3xl space-y-6 relative border-sky-500/30/80 shadow-2xl">
+                    <div class="glass-panel p-8 rounded-3xl space-y-6 relative border-sky-500/40 shadow-2xl">
                         <div class="flex items-center justify-between pb-4 border-b border-slate-700">
                             <span class="font-mono text-xs text-sky-400 font-black uppercase tracking-wider">// PROFILE TELEMETRY</span>
                             <span class="flex items-center gap-2">
