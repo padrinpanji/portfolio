@@ -422,8 +422,17 @@
             </div>
         </header>
 
-        <section id="hero" class="min-h-screen flex items-center justify-center px-6 pt-20 pb-6 relative">
-            <div class="max-w-6xl mx-auto text-center space-y-5">
+        <section id="hero" class="min-h-screen flex items-center justify-center px-6 pt-14 pb-6 relative">
+            <div class="max-w-6xl mx-auto text-center space-y-4">
+
+                <!-- Profile photo with gradient ring -->
+                <div class="reveal relative inline-block mb-1">
+                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-tr from-sky-500 via-indigo-600 to-violet-600 p-[3px] shadow-xl shadow-sky-500/25 animate-float">
+                        <img src="profile.jpg" onerror="this.onerror=null;this.src='https://github.com/padrinpanji.png';" alt="Padrin Panji Sasmito — Full Stack Engineer" class="w-full h-full rounded-full object-cover bg-white" />
+                    </div>
+                    <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-slate-900 text-white font-mono text-[9px] font-bold tracking-wider whitespace-nowrap shadow-md">FE TEAM LEAD @ RUMAH123</span>
+                </div>
+
 
                 <!-- Status Badge -->
                 <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel border-sky-300 text-sky-700 text-xs font-mono font-bold tracking-wider uppercase shadow-md">
@@ -432,7 +441,7 @@
                 </div>
 
                 <!-- Main Hero Headline -->
-                <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-slate-900 leading-[1.05]">
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 leading-[1.05]">
                     Full-Stack Engineering
                     <br class="hidden sm:inline" />
                     <span class="bg-gradient-to-r from-sky-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent text-glow">
