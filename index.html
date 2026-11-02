@@ -202,6 +202,17 @@
         }
 
 
+        /* Engagement type popover */
+        #cf-type-pop:not(.hidden) {
+            animation: popIn 0.18s ease;
+            transform-origin: top;
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        #cf-type-btn[aria-expanded="true"] i { transform: rotate(180deg); }
+
         ::-webkit-scrollbar-track { background: #182335; }
         ::-webkit-scrollbar-thumb { background: #283548; }
         ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
@@ -1445,13 +1456,19 @@
                         </div>
 
                         <div class="space-y-2 font-mono text-xs font-bold">
-                            <label class="text-slate-200">ENGAGEMENT TYPE</label>
-                            <select id="cf-type" class="w-full px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-600 text-slate-100 focus:outline-none focus:border-sky-400 transition-colors shadow-sm">
-                                <option>Full-Time Role (Senior / Lead Engineer)</option>
-                                <option>IT Management Role</option>
-                                <option>Project & Consulting Work</option>
-                                <option>Just Saying Hi</option>
-                            </select>
+                            <label id="cf-type-label" class="text-slate-300">ENGAGEMENT TYPE</label>
+                            <div class="relative" id="cf-type-wrap">
+                                <button type="button" id="cf-type-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="cf-type-label" class="w-full px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-600 text-left font-mono text-xs font-bold text-slate-100 flex items-center justify-between gap-3 transition-colors hover:border-sky-400 focus:outline-none focus:border-sky-400 shadow-sm">
+                                    <span id="cf-type-value">Full-Time Role (Senior / Lead Engineer)</span>
+                                    <i class="fa-solid fa-chevron-down text-sky-400 text-xs transition-transform duration-200"></i>
+                                </button>
+                                <div id="cf-type-pop" role="listbox" aria-labelledby="cf-type-label" class="hidden absolute z-30 mt-2 w-full rounded-xl bg-slate-950 border border-slate-600 shadow-2xl overflow-hidden py-1.5">
+                                    <button type="button" role="option" aria-selected="true" data-value="Full-Time Role (Senior / Lead Engineer)" class="cf-type-opt w-full text-left px-4 py-2.5 font-mono text-xs font-bold text-white bg-sky-500/15 border-l-2 border-sky-400 transition-colors hover:bg-sky-500/10">Full-Time Role (Senior / Lead Engineer)</button>
+                                    <button type="button" role="option" aria-selected="false" data-value="IT Management Role" class="cf-type-opt w-full text-left px-4 py-2.5 font-mono text-xs font-bold text-slate-300 border-l-2 border-transparent transition-colors hover:bg-sky-500/10">IT Management Role</button>
+                                    <button type="button" role="option" aria-selected="false" data-value="Project & Consulting Work" class="cf-type-opt w-full text-left px-4 py-2.5 font-mono text-xs font-bold text-slate-300 border-l-2 border-transparent transition-colors hover:bg-sky-500/10">Project &amp; Consulting Work</button>
+                                    <button type="button" role="option" aria-selected="false" data-value="Just Saying Hi" class="cf-type-opt w-full text-left px-4 py-2.5 font-mono text-xs font-bold text-slate-300 border-l-2 border-transparent transition-colors hover:bg-sky-500/10">Just Saying Hi</button>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="space-y-2 font-mono text-xs font-bold">
@@ -2027,6 +2044,61 @@
                 });
             });
 
+            // Engagement type popover
+            const typeBtn = document.getElementById('cf-type-btn');
+            const typePop = document.getElementById('cf-type-pop');
+            const typeValue = document.getElementById('cf-type-value');
+            const typeChevron = typeBtn.querySelector('i');
+            const typeOpts = Array.from(document.querySelectorAll('.cf-type-opt'));
+
+            function closeTypePop() {
+                typePop.classList.add('hidden');
+                typeBtn.setAttribute('aria-expanded', 'false');
+                typeChevron.classList.remove('rotate-180');
+            }
+            function openTypePop() {
+                typePop.classList.remove('hidden');
+                typeBtn.setAttribute('aria-expanded', 'true');
+                typeChevron.classList.add('rotate-180');
+                audioSynth.playSwoosh();
+            }
+            typeBtn.addEventListener('click', () => {
+                typePop.classList.contains('hidden') ? openTypePop() : closeTypePop();
+            });
+            typeOpts.forEach(opt => {
+                opt.addEventListener('click', () => {
+                    typeOpts.forEach(o => {
+                        o.classList.remove('bg-sky-500/15', 'border-sky-400', 'text-white');
+                        o.classList.add('border-transparent', 'text-slate-300');
+                        o.setAttribute('aria-selected', 'false');
+                    });
+                    opt.classList.remove('border-transparent', 'text-slate-300');
+                    opt.classList.add('bg-sky-500/15', 'border-sky-400', 'text-white');
+                    opt.setAttribute('aria-selected', 'true');
+                    typeValue.textContent = opt.dataset.value;
+                    closeTypePop();
+                    audioSynth.playBeep(750, 0.04);
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#cf-type-wrap')) closeTypePop();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (typePop.classList.contains('hidden')) return;
+                if (e.key === 'Escape') {
+                    closeTypePop();
+                    typeBtn.focus();
+                }
+                if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    const idx = typeOpts.indexOf(document.activeElement);
+                    let next = e.key === 'ArrowDown' ? idx + 1 : idx - 1;
+                    if (next < 0) next = typeOpts.length - 1;
+                    if (next >= typeOpts.length) next = 0;
+                    typeOpts[next].focus();
+                }
+            });
+
             // Contact Form → WhatsApp
             const contactForm = document.getElementById('contact-form');
             const contactAlert = document.getElementById('contact-alert');
@@ -2038,7 +2110,7 @@
 
                 const name = document.getElementById('cf-name').value.trim();
                 const email = document.getElementById('cf-email').value.trim();
-                const type = document.getElementById('cf-type').value;
+                const type = document.getElementById('cf-type-value').textContent.trim();
                 const message = document.getElementById('cf-message').value.trim();
 
                 const text =
