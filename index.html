@@ -201,45 +201,6 @@
             text-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
         }
 
-        /* ---- dark remap of light utility classes ---- */
-        .text-slate-900 { color: #f8fafc !important; }
-        .text-slate-800 { color: #e2e8f0 !important; }
-        .text-slate-700 { color: #cbd5e1 !important; }
-        .text-slate-600 { color: #94a3b8 !important; }
-        .text-slate-500 { color: #7c8aa0 !important; }
-        .text-slate-400 { color: #8b98ad !important; }
-        .text-sky-600, .text-sky-700 { color: #38bdf8 !important; }
-        .text-sky-800 { color: #7dd3fc !important; }
-        .text-indigo-600, .text-indigo-700 { color: #a5b4fc !important; }
-        .text-indigo-800 { color: #c7d2fe !important; }
-        .text-emerald-600, .text-emerald-700 { color: #34d399 !important; }
-        .text-emerald-800 { color: #6ee7b7 !important; }
-        .text-violet-600, .text-violet-700 { color: #c4b5fd !important; }
-
-        .bg-slate-100\/80, .bg-slate-100\/90, .bg-slate-100 { background: rgba(13, 20, 33, 0.45) !important; }
-        .bg-slate-200 { background: #1e293b !important; }
-        .bg-white, .bg-white\/80 { background: #111a2c !important; }
-        .bg-sky-50 { background: rgba(2, 132, 199, 0.12) !important; }
-        .bg-indigo-50 { background: rgba(79, 70, 229, 0.14) !important; }
-        .bg-emerald-50 { background: rgba(5, 150, 105, 0.12) !important; }
-        .bg-violet-50 { background: rgba(124, 58, 237, 0.14) !important; }
-        .bg-slate-50 { background: rgba(30, 41, 59, 0.5) !important; }
-        .hover\:bg-white:hover { background: rgba(13, 20, 33, 0.9) !important; }
-        .hover\:bg-sky-100:hover { background: rgba(2, 132, 199, 0.18) !important; }
-        .bg-emerald-50 { border-color: rgba(16, 185, 129, 0.35) !important; }
-
-        .text-glow {
-            text-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
-        }
-
-        .border-slate-300, .border-slate-200 { border-color: #283548 !important; }
-        .border-sky-200, .border-sky-300, .border-sky-300\/60, .border-sky-300\/80, .border-sky-200\/80 { border-color: rgba(2, 132, 199, 0.4) !important; }
-        .border-indigo-200, .border-indigo-300, .border-indigo-300\/60 { border-color: rgba(99, 102, 241, 0.4) !important; }
-        .border-emerald-200, .border-emerald-300, .border-emerald-300\/60 { border-color: rgba(16, 185, 129, 0.4) !important; }
-        .border-violet-200 { border-color: rgba(124, 58, 237, 0.4) !important; }
-
-        input, select, textarea { color: #e2e8f0; }
-        input::placeholder, textarea::placeholder { color: #55637a; }
 
         ::-webkit-scrollbar-track { background: #0b1220; }
         ::-webkit-scrollbar-thumb { background: #283548; }
@@ -367,18 +328,18 @@
         }
     </style>
 </head>
-<body class="selection:bg-sky-500 selection:text-white">
+<body class="selection:bg-sky-500/100 selection:text-white">
 
     <!-- 3D Canvas Background Container -->
     <div id="canvas-container"></div>
 
     <!-- Interactive 3D Node Telemetry Tooltip -->
     <div id="node-tooltip" class="glass-panel px-4 py-2.5 rounded-xl border-sky-500/40 shadow-2xl">
-        <div class="flex items-center gap-2 font-mono text-[10px] text-sky-600 font-bold">
-            <span class="w-2 h-2 rounded-full bg-sky-500 animate-ping"></span>
+        <div class="flex items-center gap-2 font-mono text-[10px] text-sky-400 font-bold">
+            <span class="w-2 h-2 rounded-full bg-sky-500/100 animate-ping"></span>
             <span id="tooltip-title">SYSTEM_TELEMETRY</span>
         </div>
-        <div id="tooltip-body" class="font-mono text-xs text-slate-900 font-bold mt-1">
+        <div id="tooltip-body" class="font-mono text-xs text-slate-100 font-bold mt-1">
             Cluster Metric Active
         </div>
     </div>
@@ -388,7 +349,7 @@
         <div class="gh-tip glass-panel">
             <i class="fa-solid fa-lock text-amber-500"></i>
             <span>Some repos are private</span>
-            <a href="#contact" class="text-sky-600 font-black hover:text-sky-500">— contact me</a>
+            <a href="#contact" class="text-sky-400 font-black hover:text-sky-500">— contact me</a>
         </div>
         <a href="https://github.com/padrinpanji" target="_blank" rel="noopener" class="gh-float" aria-label="View my code on GitHub">
             <i class="fa-brands fa-github text-lg"></i>
@@ -405,40 +366,40 @@
                 <!-- Brand -->
                 <a href="#hero" class="flex items-center gap-3 group">
                     <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-sky-500 via-indigo-600 to-violet-600 p-[1.5px] transition-transform duration-500 group-hover:scale-105 shadow-md shadow-sky-500/20">
-                        <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
-                            <i class="fa-solid fa-code text-sky-600 text-xs"></i>
+                        <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-code text-sky-400 text-xs"></i>
                         </div>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-mono text-xs tracking-wider font-extrabold text-slate-900 group-hover:text-sky-600 transition-colors">
+                        <span class="font-mono text-xs tracking-wider font-extrabold text-slate-100 group-hover:text-sky-400 transition-colors">
                             PADRIN PANJI SASMITO
                         </span>
-                        <span class="font-mono text-[10px] text-slate-500 font-semibold tracking-widest uppercase">
+                        <span class="font-mono text-[10px] text-slate-400 font-semibold tracking-widest uppercase">
                             Full Stack Engineer
                         </span>
                     </div>
                 </a>
 
                 <!-- Navigation Links -->
-                <div class="hidden lg:flex items-center gap-8 font-mono text-xs tracking-wider font-semibold text-slate-700">
-                    <a href="#about" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">01.</span> STORY</a>
-                    <a href="#impact" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">02.</span> IMPACT</a>
-                    <a href="#architecture" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">03.</span> PLAYBOOKS</a>
-                    <a href="#skills" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">04.</span> CAPABILITIES</a>
-                    <a href="#projects" class="hover:text-sky-600 transition-colors flex items-center gap-1.5"><span class="text-sky-600 font-bold">05.</span> DELIVERY</a>
+                <div class="hidden lg:flex items-center gap-8 font-mono text-xs tracking-wider font-semibold text-slate-300">
+                    <a href="#about" class="hover:text-sky-400 transition-colors flex items-center gap-1.5"><span class="text-sky-400 font-bold">01.</span> STORY</a>
+                    <a href="#impact" class="hover:text-sky-400 transition-colors flex items-center gap-1.5"><span class="text-sky-400 font-bold">02.</span> IMPACT</a>
+                    <a href="#architecture" class="hover:text-sky-400 transition-colors flex items-center gap-1.5"><span class="text-sky-400 font-bold">03.</span> PLAYBOOKS</a>
+                    <a href="#skills" class="hover:text-sky-400 transition-colors flex items-center gap-1.5"><span class="text-sky-400 font-bold">04.</span> CAPABILITIES</a>
+                    <a href="#projects" class="hover:text-sky-400 transition-colors flex items-center gap-1.5"><span class="text-sky-400 font-bold">05.</span> DELIVERY</a>
                 </div>
 
                 <!-- Action Controls HUD -->
                 <div class="flex items-center gap-3">
                     <!-- Audio FX Toggle Button -->
-                    <button id="audio-toggle" aria-label="Toggle sound effects" class="px-3.5 py-2 rounded-full glass-panel text-slate-700 hover:text-sky-600 font-mono text-xs flex items-center gap-2 border-slate-300 hover:border-sky-500 transition-all shadow-sm">
+                    <button id="audio-toggle" aria-label="Toggle sound effects" class="px-3.5 py-2 rounded-full glass-panel text-slate-300 hover:text-sky-400 font-mono text-xs flex items-center gap-2 border-slate-600 hover:border-sky-500 transition-all shadow-sm">
                         <i id="audio-icon" class="fa-solid fa-volume-xmark text-slate-400"></i>
                         <span id="audio-text" class="hidden sm:inline text-[10px] font-bold">SFX OFF</span>
                     </button>
 
                     <!-- AI Terminal Toggle Button -->
-                    <button id="terminal-toggle" aria-label="Toggle AI Co-pilot" class="px-3.5 py-2 rounded-full glass-panel text-sky-700 bg-sky-50/80 border-sky-300 font-mono text-xs flex items-center gap-2 hover:bg-sky-100 transition-all shadow-sm">
-                        <i class="fa-solid fa-terminal text-xs text-sky-600"></i>
+                    <button id="terminal-toggle" aria-label="Toggle AI Co-pilot" class="px-3.5 py-2 rounded-full glass-panel text-sky-400 bg-sky-500/10/80 border-sky-500/40 font-mono text-xs flex items-center gap-2 hover:bg-sky-500/100/15 transition-all shadow-sm">
+                        <i class="fa-solid fa-terminal text-xs text-sky-400"></i>
                         <span class="hidden sm:inline text-[10px] font-bold">CO-PILOT</span>
                     </button>
 
@@ -449,20 +410,20 @@
                     </a>
 
                     <!-- Mobile Navigation Toggle -->
-                    <button id="mobile-menu-btn" aria-label="Toggle menu" class="lg:hidden text-slate-800 hover:text-sky-600 p-2">
+                    <button id="mobile-menu-btn" aria-label="Toggle menu" class="lg:hidden text-slate-200 hover:text-sky-400 p-2">
                         <i class="fa-solid fa-bars text-lg"></i>
                     </button>
                 </div>
             </nav>
 
             <!-- Mobile Dropdown -->
-            <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto mt-3 glass-panel rounded-2xl p-6 flex-col gap-4 text-xs font-mono font-bold border-sky-200 shadow-xl">
-                <a href="#about" class="mobile-link text-slate-800 hover:text-sky-600 py-1">01. MY STORY</a>
-                <a href="#impact" class="mobile-link text-slate-800 hover:text-sky-600 py-1">02. IMPACT & TIMELINE</a>
-                <a href="#architecture" class="mobile-link text-slate-800 hover:text-sky-600 py-1">03. DELIVERY PLAYBOOKS</a>
-                <a href="#skills" class="mobile-link text-slate-800 hover:text-sky-600 py-1">04. CAPABILITY MATRIX</a>
-                <a href="#projects" class="mobile-link text-slate-800 hover:text-sky-600 py-1">05. DELIVERY HIGHLIGHTS</a>
-                <a href="#contact" class="mobile-link text-sky-600 font-black py-1 flex items-center justify-between border-t border-slate-200 pt-3">
+            <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto mt-3 glass-panel rounded-2xl p-6 flex-col gap-4 text-xs font-mono font-bold border-sky-500/30 shadow-xl">
+                <a href="#about" class="mobile-link text-slate-200 hover:text-sky-400 py-1">01. MY STORY</a>
+                <a href="#impact" class="mobile-link text-slate-200 hover:text-sky-400 py-1">02. IMPACT & TIMELINE</a>
+                <a href="#architecture" class="mobile-link text-slate-200 hover:text-sky-400 py-1">03. DELIVERY PLAYBOOKS</a>
+                <a href="#skills" class="mobile-link text-slate-200 hover:text-sky-400 py-1">04. CAPABILITY MATRIX</a>
+                <a href="#projects" class="mobile-link text-slate-200 hover:text-sky-400 py-1">05. DELIVERY HIGHLIGHTS</a>
+                <a href="#contact" class="mobile-link text-sky-400 font-black py-1 flex items-center justify-between border-t border-slate-700 pt-3">
                     <span>06. GET IN TOUCH</span>
                     <i class="fa-solid fa-paper-plane"></i>
                 </a>
@@ -473,13 +434,13 @@
             <div class="max-w-6xl mx-auto text-center space-y-4">
 
                 <!-- Status Badge -->
-                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel border-sky-300 text-sky-700 text-xs font-mono font-bold tracking-wider uppercase shadow-md">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel border-sky-500/40 text-sky-400 text-xs font-mono font-bold tracking-wider uppercase shadow-md">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/100 animate-ping"></span>
                     <span>Open to Senior Engineering & IT-Lead Roles · Bandung, Indonesia</span>
                 </div>
 
                 <!-- Main Hero Headline -->
-                <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 leading-[1.05]">
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-slate-100 leading-[1.05]">
                     Full-Stack Engineering
                     <br class="hidden sm:inline" />
                     <span class="bg-gradient-to-r from-sky-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent text-glow">
@@ -490,27 +451,27 @@
                 </h1>
 
                 <!-- Subtitle -->
-                <p class="max-w-4xl mx-auto text-slate-600 text-base sm:text-lg font-medium leading-relaxed">
-                    I lead the <span class="text-sky-700 font-bold">front-end team on Rumah123</span>, Indonesia's property portal — owning monetization, inquiries, SEO and tracking — with Next.js, React, Express and an AI-augmented workflow. 12+ years: junior web developer → IT project manager → full-stack engineer.
+                <p class="max-w-4xl mx-auto text-slate-400 text-base sm:text-lg font-medium leading-relaxed">
+                    I lead the <span class="text-sky-400 font-bold">front-end team on Rumah123</span>, Indonesia's property portal — owning monetization, inquiries, SEO and tracking — with Next.js, React, Express and an AI-augmented workflow. 12+ years: junior web developer → IT project manager → full-stack engineer.
                 </p>
 
                 <!-- Key Impact Stat Grid -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto pt-2">
-                    <div class="glass-card p-5 rounded-2xl text-center border-sky-300/50">
-                        <div class="text-3xl sm:text-4xl font-black font-mono text-sky-600">12+</div>
-                        <div class="text-[11px] text-slate-600 font-mono font-bold mt-1 uppercase tracking-wider">Years in IT</div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-sky-500/40/50">
+                        <div class="text-3xl sm:text-4xl font-black font-mono text-sky-400">12+</div>
+                        <div class="text-[11px] text-slate-400 font-mono font-bold mt-1 uppercase tracking-wider">Years in IT</div>
                     </div>
-                    <div class="glass-card p-5 rounded-2xl text-center border-indigo-300/50">
-                        <div class="text-3xl sm:text-4xl font-black font-mono text-indigo-600">12+</div>
-                        <div class="text-[11px] text-slate-600 font-mono font-bold mt-1 uppercase tracking-wider">Projects Shipped</div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-indigo-500/40/50">
+                        <div class="text-3xl sm:text-4xl font-black font-mono text-indigo-300">12+</div>
+                        <div class="text-[11px] text-slate-400 font-mono font-bold mt-1 uppercase tracking-wider">Projects Shipped</div>
                     </div>
-                    <div class="glass-card p-5 rounded-2xl text-center border-emerald-300/50">
-                        <div class="text-3xl sm:text-4xl font-black font-mono text-emerald-600">3</div>
-                        <div class="text-[11px] text-slate-600 font-mono font-bold mt-1 uppercase tracking-wider">Leadership Roles</div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-emerald-500/40/50">
+                        <div class="text-3xl sm:text-4xl font-black font-mono text-emerald-400">3</div>
+                        <div class="text-[11px] text-slate-400 font-mono font-bold mt-1 uppercase tracking-wider">Leadership Roles</div>
                     </div>
                     <div class="glass-card p-5 rounded-2xl text-center border-violet-300/50">
-                        <div class="text-3xl sm:text-4xl font-black font-mono text-violet-600">Q1</div>
-                        <div class="text-[11px] text-slate-600 font-mono font-bold mt-1 uppercase tracking-wider">Award — "Own It"</div>
+                        <div class="text-3xl sm:text-4xl font-black font-mono text-violet-300">Q1</div>
+                        <div class="text-[11px] text-slate-400 font-mono font-bold mt-1 uppercase tracking-wider">Award — "Own It"</div>
                     </div>
                 </div>
 
@@ -519,8 +480,8 @@
                     <a href="#architecture" class="btn-sfx px-8 py-4 rounded-full bg-gradient-to-r from-sky-600 via-indigo-600 to-blue-600 text-white font-mono font-extrabold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30 hover:scale-105">
                         <i class="fa-solid fa-sitemap mr-2"></i> EXPLORE MY PLAYBOOKS
                     </a>
-                    <button id="open-co-pilot-btn" class="btn-sfx px-8 py-4 rounded-full glass-panel hover:bg-white text-slate-800 font-mono font-bold text-xs tracking-wider uppercase border-sky-300/80 transition-all duration-300 hover:scale-105 shadow-md">
-                        <i class="fa-solid fa-terminal mr-2 text-sky-600"></i> ASK MY CO-PILOT
+                    <button id="open-co-pilot-btn" class="btn-sfx px-8 py-4 rounded-full glass-panel hover:bg-slate-800 text-slate-200 font-mono font-bold text-xs tracking-wider uppercase border-sky-500/40/80 transition-all duration-300 hover:scale-105 shadow-md">
+                        <i class="fa-solid fa-terminal mr-2 text-sky-400"></i> ASK MY CO-PILOT
                     </button>
                 </div>
             </div>
@@ -530,48 +491,48 @@
             <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                 <div class="lg:col-span-7 space-y-8">
-                    <div class="inline-flex items-center gap-2 text-sky-700 font-mono text-xs font-bold tracking-widest uppercase">
+                    <div class="inline-flex items-center gap-2 text-sky-400 font-mono text-xs font-bold tracking-widest uppercase">
                         <i class="fa-solid fa-microchip"></i>
                         <span>01. MY STORY</span>
                     </div>
 
-                    <h2 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+                    <h2 class="text-3xl sm:text-5xl font-black text-slate-100 leading-tight">
                         From Junior Web Developer to IT Project Manager — and Back to Full-Stack Engineering
                     </h2>
 
-                    <p class="text-slate-600 text-base leading-relaxed font-normal">
+                    <p class="text-slate-400 text-base leading-relaxed font-normal">
                         With over 12 years in the IT industry, I've been the junior developer writing Drupal at Walden Global Services, the team leader and project manager running client delivery at Smooets, and now the full-stack engineer driving conversion on Rumah123. Every one of those jobs made me better at the next one.
                     </p>
 
                     <!-- Key Strategic Pillars -->
                     <div class="space-y-4 pt-2">
                         <div class="glass-card p-5 rounded-2xl flex items-start gap-4">
-                            <div class="p-3 bg-sky-500/10 rounded-xl text-sky-600 text-lg flex-shrink-0">
+                            <div class="p-3 bg-sky-500/100/10 rounded-xl text-sky-400 text-lg flex-shrink-0">
                                 <i class="fa-solid fa-bullseye"></i>
                             </div>
                             <div>
-                                <h3 class="text-slate-900 font-bold font-mono text-sm">Conversion-Focused Engineering</h3>
-                                <p class="text-slate-600 text-xs sm:text-sm mt-1">Inquiry funnels, tracking and attribution, ads monetization, and the technical SEO that keeps the portal discoverable and converting.</p>
+                                <h3 class="text-slate-100 font-bold font-mono text-sm">Conversion-Focused Engineering</h3>
+                                <p class="text-slate-400 text-xs sm:text-sm mt-1">Inquiry funnels, tracking and attribution, ads monetization, and the technical SEO that keeps the portal discoverable and converting.</p>
                             </div>
                         </div>
 
                         <div class="glass-card p-5 rounded-2xl flex items-start gap-4">
-                            <div class="p-3 bg-indigo-500/10 rounded-xl text-indigo-600 text-lg flex-shrink-0">
+                            <div class="p-3 bg-indigo-500/100/10 rounded-xl text-indigo-300 text-lg flex-shrink-0">
                                 <i class="fa-solid fa-layer-group"></i>
                             </div>
                             <div>
-                                <h3 class="text-slate-900 font-bold font-mono text-sm">Craft Across the Whole Stack</h3>
-                                <p class="text-slate-600 text-xs sm:text-sm mt-1">Next.js, React, Express and WordPress today — Laravel, Drupal, PHP and Angular from the years before — plus the refactoring, code-splitting and lazy-loading work that keeps large codebases fast and maintainable.</p>
+                                <h3 class="text-slate-100 font-bold font-mono text-sm">Craft Across the Whole Stack</h3>
+                                <p class="text-slate-400 text-xs sm:text-sm mt-1">Next.js, React, Express and WordPress today — Laravel, Drupal, PHP and Angular from the years before — plus the refactoring, code-splitting and lazy-loading work that keeps large codebases fast and maintainable.</p>
                             </div>
                         </div>
 
                         <div class="glass-card p-5 rounded-2xl flex items-start gap-4">
-                            <div class="p-3 bg-emerald-500/10 rounded-xl text-emerald-600 text-lg flex-shrink-0">
+                            <div class="p-3 bg-emerald-500/100/10 rounded-xl text-emerald-400 text-lg flex-shrink-0">
                                 <i class="fa-solid fa-robot"></i>
                             </div>
                             <div>
-                                <h3 class="text-slate-900 font-bold font-mono text-sm">AI-Augmented Development Workflow</h3>
-                                <p class="text-slate-600 text-xs sm:text-sm mt-1">Using AI agents for task breakdown, code generation, testing and regression prevention — faster iteration, same standards of reliability and performance.</p>
+                                <h3 class="text-slate-100 font-bold font-mono text-sm">AI-Augmented Development Workflow</h3>
+                                <p class="text-slate-400 text-xs sm:text-sm mt-1">Using AI agents for task breakdown, code generation, testing and regression prevention — faster iteration, same standards of reliability and performance.</p>
                             </div>
                         </div>
                     </div>
@@ -581,48 +542,48 @@
                 <div class="lg:col-span-5">
                     <div class="reveal relative inline-block mb-8 w-full">
                         <div class="w-44 h-44 mx-auto rounded-full bg-gradient-to-tr from-sky-500 via-indigo-600 to-violet-600 p-[3px] shadow-xl shadow-sky-500/20">
-                            <img src="profile-square.jpg" onerror="this.onerror=null;this.src='https://github.com/padrinpanji.png';" alt="Padrin Panji Sasmito" class="w-full h-full rounded-full object-cover bg-white" />
+                            <img src="profile-square.jpg" onerror="this.onerror=null;this.src='https://github.com/padrinpanji.png';" alt="Padrin Panji Sasmito" class="w-full h-full rounded-full object-cover bg-slate-900" />
                         </div>
                         <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-900 text-white font-mono text-[10px] font-bold tracking-wider whitespace-nowrap shadow-md">FE TEAM LEAD @ RUMAH123</span>
                     </div>
-                    <div class="glass-panel p-8 rounded-3xl space-y-6 relative border-sky-200/80 shadow-2xl">
-                        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-                            <span class="font-mono text-xs text-sky-700 font-black uppercase tracking-wider">// PROFILE TELEMETRY</span>
+                    <div class="glass-panel p-8 rounded-3xl space-y-6 relative border-sky-500/30/80 shadow-2xl">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-700">
+                            <span class="font-mono text-xs text-sky-400 font-black uppercase tracking-wider">// PROFILE TELEMETRY</span>
                             <span class="flex items-center gap-2">
-                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                                <span class="text-[10px] font-mono text-emerald-700 font-bold">ACTIVE</span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/100 animate-ping"></span>
+                                <span class="text-[10px] font-mono text-emerald-400 font-bold">ACTIVE</span>
                             </span>
                         </div>
 
                         <div class="space-y-4 font-mono text-xs">
-                            <div class="flex justify-between items-center py-1 border-b border-slate-200/80">
-                                <span class="text-slate-500 font-medium">CURRENT ROLE:</span>
-                                <span class="text-sky-700 font-bold">Full Stack Engineer · FE Team Lead</span>
+                            <div class="flex justify-between items-center py-1 border-b border-slate-700/80">
+                                <span class="text-slate-400 font-medium">CURRENT ROLE:</span>
+                                <span class="text-sky-400 font-bold">Full Stack Engineer · FE Team Lead</span>
                             </div>
-                            <div class="flex justify-between items-center py-1 border-b border-slate-200/80">
-                                <span class="text-slate-500 font-medium">ORGANIZATION:</span>
-                                <span class="text-slate-900 font-extrabold">99 Group (Rumah123)</span>
+                            <div class="flex justify-between items-center py-1 border-b border-slate-700/80">
+                                <span class="text-slate-400 font-medium">ORGANIZATION:</span>
+                                <span class="text-slate-100 font-extrabold">99 Group (Rumah123)</span>
                             </div>
-                            <div class="flex justify-between items-center py-1 border-b border-slate-200/80">
-                                <span class="text-slate-500 font-medium">LOCATION:</span>
-                                <span class="text-indigo-700 font-bold">Bandung, ID · GMT+7 · Hybrid</span>
+                            <div class="flex justify-between items-center py-1 border-b border-slate-700/80">
+                                <span class="text-slate-400 font-medium">LOCATION:</span>
+                                <span class="text-indigo-300 font-bold">Bandung, ID · GMT+7 · Hybrid</span>
                             </div>
-                            <div class="flex justify-between items-center py-1 border-b border-slate-200/80">
-                                <span class="text-slate-500 font-medium">EXPERIENCE:</span>
-                                <span class="text-emerald-700 font-bold">12+ Yrs · Dev → Lead → PM</span>
+                            <div class="flex justify-between items-center py-1 border-b border-slate-700/80">
+                                <span class="text-slate-400 font-medium">EXPERIENCE:</span>
+                                <span class="text-emerald-400 font-bold">12+ Yrs · Dev → Lead → PM</span>
                             </div>
                             <div class="flex justify-between items-center py-1">
-                                <span class="text-slate-500 font-medium">EDUCATION:</span>
-                                <span class="text-slate-800 font-semibold">Diploma of Software Engineering</span>
+                                <span class="text-slate-400 font-medium">EDUCATION:</span>
+                                <span class="text-slate-200 font-semibold">Diploma of Software Engineering</span>
                             </div>
                         </div>
 
-                        <div class="pt-4 border-t border-slate-200">
-                            <div class="text-[11px] font-mono font-bold text-slate-500 mb-3 uppercase tracking-wider">ALSO FLUENT IN</div>
+                        <div class="pt-4 border-t border-slate-700">
+                            <div class="text-[11px] font-mono font-bold text-slate-400 mb-3 uppercase tracking-wider">ALSO FLUENT IN</div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Project Delivery</span>
-                                <span class="px-3 py-1 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Client Communication</span>
-                                <span class="px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300/60 rounded-lg font-mono text-[10px] font-bold">Bahasa + English</span>
+                                <span class="px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/40/60 rounded-lg font-mono text-[10px] font-bold">Project Delivery</span>
+                                <span class="px-3 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/40/60 rounded-lg font-mono text-[10px] font-bold">Client Communication</span>
+                                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/40/60 rounded-lg font-mono text-[10px] font-bold">Bahasa + English</span>
                             </div>
                         </div>
                     </div>
@@ -631,70 +592,70 @@
             </div>
         </section>
 
-        <section id="impact" class="min-h-screen flex items-center px-6 py-28 bg-slate-100/80">
+        <section id="impact" class="min-h-screen flex items-center px-6 py-28 bg-slate-900/50">
             <div class="max-w-6xl mx-auto w-full space-y-16">
 
                 <div class="text-center space-y-4">
-                    <div class="inline-flex items-center gap-2 text-sky-700 font-mono text-xs font-bold tracking-widest uppercase">
+                    <div class="inline-flex items-center gap-2 text-sky-400 font-mono text-xs font-bold tracking-widest uppercase">
                         <i class="fa-solid fa-chart-line"></i>
                         <span>02. IMPACT & TIMELINE</span>
                     </div>
-                    <h2 class="text-3xl sm:text-5xl font-black text-slate-900">A Career Built on Delivered Work</h2>
+                    <h2 class="text-3xl sm:text-5xl font-black text-slate-100">A Career Built on Delivered Work</h2>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glass-card p-8 rounded-3xl relative overflow-hidden border-sky-200 shadow-lg">
-                        <div class="text-4xl sm:text-5xl font-black font-mono text-sky-600 mb-3">12+ Yrs</div>
-                        <h3 class="text-base font-bold text-slate-900 mb-2">Cross-Domain Experience</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    <div class="glass-card p-8 rounded-3xl relative overflow-hidden border-sky-500/30 shadow-lg">
+                        <div class="text-4xl sm:text-5xl font-black font-mono text-sky-400 mb-3">12+ Yrs</div>
+                        <h3 class="text-base font-bold text-slate-100 mb-2">Cross-Domain Experience</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
                             Web agencies, outsourcing, and proptech — engineering, team leadership and project management across the full delivery lifecycle.
                         </p>
                     </div>
 
-                    <div class="glass-card p-8 rounded-3xl relative overflow-hidden border-indigo-200 shadow-lg">
-                        <div class="text-4xl sm:text-5xl font-black font-mono text-indigo-600 mb-3">12+ Builds</div>
-                        <h3 class="text-base font-bold text-slate-900 mb-2">Enterprise Projects Delivered</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    <div class="glass-card p-8 rounded-3xl relative overflow-hidden border-indigo-500/30 shadow-lg">
+                        <div class="text-4xl sm:text-5xl font-black font-mono text-indigo-300 mb-3">12+ Builds</div>
+                        <h3 class="text-base font-bold text-slate-100 mb-2">Enterprise Projects Delivered</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
                             Property management, fintech dashboards, photo-studio operations, ticketing, flash-sale and service-center platforms — from concept to production.
                         </p>
                     </div>
 
-                    <div class="glass-card p-8 rounded-3xl relative overflow-hidden border-emerald-200 shadow-lg">
-                        <div class="text-4xl sm:text-5xl font-black font-mono text-emerald-600 mb-3">Q1 Award</div>
-                        <h3 class="text-base font-bold text-slate-900 mb-2">"Own It" — 99 Group</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    <div class="glass-card p-8 rounded-3xl relative overflow-hidden border-emerald-500/30 shadow-lg">
+                        <div class="text-4xl sm:text-5xl font-black font-mono text-emerald-400 mb-3">Q1 Award</div>
+                        <h3 class="text-base font-bold text-slate-100 mb-2">"Own It" — 99 Group</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
                             Quarterly recognition, March 2023, for ownership and delivery on the Rumah123 web platform.
                         </p>
                     </div>
                 </div>
 
                 <!-- Career Progression Timeline -->
-                <div class="glass-panel p-8 sm:p-10 rounded-3xl space-y-8 border-sky-200">
-                    <h3 class="text-base font-mono font-black text-slate-900 flex items-center justify-between border-b border-slate-200 pb-4">
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl space-y-8 border-sky-500/30">
+                    <h3 class="text-base font-mono font-black text-slate-100 flex items-center justify-between border-b border-slate-700 pb-4">
                         <span>// CAREER TRAJECTORY</span>
-                        <span class="text-xs text-sky-700 font-bold">2013 - PRESENT</span>
+                        <span class="text-xs text-sky-400 font-bold">2013 - PRESENT</span>
                     </h3>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="border-l-4 border-sky-500 pl-5 space-y-2">
-                            <span class="text-xs font-mono text-sky-700 font-bold">2021 - PRESENT</span>
-                            <h4 class="text-base font-extrabold text-slate-900">Full Stack Engineer · Front-End Team Lead</h4>
-                            <p class="text-xs text-indigo-700 font-mono font-bold">99 Group (99.co | Rumah123 | SRX)</p>
-                            <p class="text-xs text-slate-600 leading-relaxed">Leading the front-end team across monetization, inquiry funnels, SEO and tracking.</p>
+                            <span class="text-xs font-mono text-sky-400 font-bold">2021 - PRESENT</span>
+                            <h4 class="text-base font-extrabold text-slate-100">Full Stack Engineer · Front-End Team Lead</h4>
+                            <p class="text-xs text-indigo-300 font-mono font-bold">99 Group (99.co | Rumah123 | SRX)</p>
+                            <p class="text-xs text-slate-400 leading-relaxed">Leading the front-end team across monetization, inquiry funnels, SEO and tracking.</p>
                         </div>
 
                         <div class="border-l-4 border-indigo-500 pl-5 space-y-2">
-                            <span class="text-xs font-mono text-indigo-700 font-bold">2014 - 2021</span>
-                            <h4 class="text-base font-extrabold text-slate-900">Lead Dev → Team Leader → IT Project Manager</h4>
-                            <p class="text-xs text-sky-700 font-mono font-bold">PT Smooets Teknologi Outsourcing</p>
-                            <p class="text-xs text-slate-600 leading-relaxed">Enterprise web apps, client communication, vendor coordination — on time, in scope, on budget.</p>
+                            <span class="text-xs font-mono text-indigo-300 font-bold">2014 - 2021</span>
+                            <h4 class="text-base font-extrabold text-slate-100">Lead Dev → Team Leader → IT Project Manager</h4>
+                            <p class="text-xs text-sky-400 font-mono font-bold">PT Smooets Teknologi Outsourcing</p>
+                            <p class="text-xs text-slate-400 leading-relaxed">Enterprise web apps, client communication, vendor coordination — on time, in scope, on budget.</p>
                         </div>
 
                         <div class="border-l-4 border-emerald-500 pl-5 space-y-2">
-                            <span class="text-xs font-mono text-emerald-700 font-bold">2013 - 2016</span>
-                            <h4 class="text-base font-extrabold text-slate-900">Developer → Lead Developer</h4>
-                            <p class="text-xs text-emerald-700 font-mono font-bold">PT Walden Global Services</p>
-                            <p class="text-xs text-slate-600 leading-relaxed">Drupal &amp; Laravel websites, documentation, and timeline estimates as lead.</p>
+                            <span class="text-xs font-mono text-emerald-400 font-bold">2013 - 2016</span>
+                            <h4 class="text-base font-extrabold text-slate-100">Developer → Lead Developer</h4>
+                            <p class="text-xs text-emerald-400 font-mono font-bold">PT Walden Global Services</p>
+                            <p class="text-xs text-slate-400 leading-relaxed">Drupal &amp; Laravel websites, documentation, and timeline estimates as lead.</p>
                         </div>
                     </div>
                 </div>
@@ -707,51 +668,51 @@
 
                 <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
                     <div class="space-y-3">
-                        <div class="inline-flex items-center gap-2 text-sky-700 font-mono text-xs font-bold tracking-widest uppercase">
+                        <div class="inline-flex items-center gap-2 text-sky-400 font-mono text-xs font-bold tracking-widest uppercase">
                             <i class="fa-solid fa-sitemap"></i>
                             <span>03. DELIVERY PLAYBOOKS</span>
                         </div>
-                        <h2 class="text-3xl sm:text-5xl font-black text-slate-900">How I Build & Ship</h2>
+                        <h2 class="text-3xl sm:text-5xl font-black text-slate-100">How I Build & Ship</h2>
                     </div>
 
                     <!-- Playbook Selector Tabs -->
                     <div id="architecture-tabs" class="flex flex-wrap gap-2 font-mono text-xs font-bold">
-                        <button class="arch-tab active px-5 py-2.5 rounded-full glass-panel border-sky-500 text-sky-700 bg-sky-50 shadow-md transition-all" data-target="ai">
+                        <button class="arch-tab active px-5 py-2.5 rounded-full glass-panel border-sky-500 text-sky-400 bg-sky-500/10 shadow-md transition-all" data-target="ai">
                             <i class="fa-solid fa-robot mr-2"></i>AI WORKFLOW
                         </button>
-                        <button class="arch-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-target="web">
+                        <button class="arch-tab px-5 py-2.5 rounded-full glass-panel text-slate-400 hover:text-sky-400 transition-all" data-target="web">
                             <i class="fa-solid fa-globe mr-2"></i>WEB PLATFORMS
                         </button>
-                        <button class="arch-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-target="quality">
+                        <button class="arch-tab px-5 py-2.5 rounded-full glass-panel text-slate-400 hover:text-sky-400 transition-all" data-target="quality">
                             <i class="fa-solid fa-shield-halved mr-2"></i>QUALITY & SPEED
                         </button>
                     </div>
                 </div>
 
-                <div id="architecture-display" class="glass-panel p-8 sm:p-12 rounded-3xl border-sky-200/80 shadow-2xl">
+                <div id="architecture-display" class="glass-panel p-8 sm:p-12 rounded-3xl border-sky-500/30/80 shadow-2xl">
 
                     <!-- Web Platform Blueprint -->
                     <div id="arch-web" class="arch-content hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-6">
-                            <span class="px-3 py-1 bg-sky-100 text-sky-800 border border-sky-300 rounded-full font-mono text-xs font-bold">
+                            <span class="px-3 py-1 bg-sky-500/100/15 text-sky-300 border border-sky-500/40 rounded-full font-mono text-xs font-bold">
                                 FEATURED PLAYBOOK
                             </span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Lead-Generation Web Platform</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-100">Lead-Generation Web Platform</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
                                 The playbook behind Rumah123's growth features: SSR pages tuned for Core Web Vitals, listing inquiry and contact flows, and the tracking layer that attributes every conversion.
                             </p>
 
                             <div class="space-y-3 font-mono text-xs font-semibold">
-                                <div class="flex items-center gap-3 text-slate-700">
-                                    <i class="fa-solid fa-circle-check text-sky-600"></i>
+                                <div class="flex items-center gap-3 text-slate-300">
+                                    <i class="fa-solid fa-circle-check text-sky-400"></i>
                                     <span>Code splitting, asset bundling & lazy loading on every release</span>
                                 </div>
-                                <div class="flex items-center gap-3 text-slate-700">
-                                    <i class="fa-solid fa-circle-check text-sky-600"></i>
+                                <div class="flex items-center gap-3 text-slate-300">
+                                    <i class="fa-solid fa-circle-check text-sky-400"></i>
                                     <span>Custom WordPress plugins & widgets for marketing and content ops</span>
                                 </div>
-                                <div class="flex items-center gap-3 text-slate-700">
-                                    <i class="fa-solid fa-circle-check text-sky-600"></i>
+                                <div class="flex items-center gap-3 text-slate-300">
+                                    <i class="fa-solid fa-circle-check text-sky-400"></i>
                                     <span>Technical SEO: structured data, crawlability and search visibility</span>
                                 </div>
                             </div>
@@ -766,15 +727,15 @@
                                 <div class="p-3 bg-slate-800 rounded-xl border border-violet-500/40 text-center text-violet-300 font-bold">
                                     CLOUD INFRA — GCP · AWS · KUBERNETES PODS
                                 </div>
-                                <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                                <div class="text-center text-slate-400"><i class="fa-solid fa-arrow-down"></i></div>
                                 <div class="p-3 bg-slate-800 rounded-xl border border-violet-500/40 text-center text-violet-300 font-semibold">
                                     LOAD BALANCER &amp; INGRESS
                                 </div>
-                                <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                                <div class="text-center text-slate-400"><i class="fa-solid fa-arrow-down"></i></div>
                                 <div class="p-3 bg-slate-800 rounded-xl border border-sky-500/40 text-center text-sky-300 font-bold">
                                     API SERVICES — GOLANG · EXPRESS
                                 </div>
-                                <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                                <div class="text-center text-slate-400"><i class="fa-solid fa-arrow-down"></i></div>
                                 <div class="p-3 bg-slate-800 rounded-xl border border-indigo-500/40 text-center text-indigo-300 font-semibold">
                                     FRONT-END — NEXT.JS · REACT SSR
                                 </div>
@@ -789,7 +750,7 @@
                                         TECHNICAL SEO
                                     </div>
                                 </div>
-                                <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                                <div class="text-center text-slate-400"><i class="fa-solid fa-arrow-down"></i></div>
                                 <div class="p-3 bg-slate-800 rounded-xl border border-emerald-500/40 text-center text-emerald-300 font-bold">
                                     CONVERSION FUNNELS & INQUIRIES
                                 </div>
@@ -800,11 +761,11 @@
                     <!-- Quality Blueprint -->
                     <div id="arch-quality" class="arch-content hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-6">
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 border border-indigo-300 rounded-full font-mono text-xs font-bold">
+                            <span class="px-3 py-1 bg-indigo-500/100/15 text-indigo-300 border border-indigo-500/40 rounded-full font-mono text-xs font-bold">
                                 QUALITY & PERFORMANCE
                             </span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">E2E Quality & Speed Mesh</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-100">E2E Quality & Speed Mesh</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
                                 End-to-end testing foundations designed so regression is caught before release — and performance budgets enforced through code splitting and lazy loading.
                             </p>
                         </div>
@@ -819,7 +780,7 @@
                                     <div class="p-3 bg-slate-800 rounded-xl border border-sky-500/40 text-center text-sky-300 font-semibold">CYPRESS E2E</div>
                                     <div class="p-3 bg-slate-800 rounded-xl border border-indigo-500/40 text-center text-indigo-300 font-semibold">WEBDRIVERIO</div>
                                 </div>
-                                <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                                <div class="text-center text-slate-400"><i class="fa-solid fa-arrow-down"></i></div>
                                 <div class="p-3 bg-slate-800 rounded-xl border border-emerald-500/40 text-center text-emerald-300 font-bold">
                                     REUSABLE TEST SKELETONS → DEPLOY
                                 </div>
@@ -834,11 +795,11 @@
                     <!-- AI Workflow Blueprint -->
                     <div id="arch-ai" class="arch-content grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-6">
-                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 rounded-full font-mono text-xs font-bold">
+                            <span class="px-3 py-1 bg-emerald-500/100/15 text-emerald-300 border border-emerald-500/40 rounded-full font-mono text-xs font-bold">
                                 AI-ASSISTED DEVELOPMENT
                             </span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">The AI-Augmented Workflow</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-100">The AI-Augmented Workflow</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
                                 AI agents woven into the daily engineering loop — accelerating delivery and raising code quality without lowering the bar for reliability.
                             </p>
                         </div>
@@ -860,7 +821,7 @@
                                         TEST SYNTHESIS
                                     </div>
                                 </div>
-                                <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                                <div class="text-center text-slate-400"><i class="fa-solid fa-arrow-down"></i></div>
                                 <div class="p-3 bg-slate-800 rounded-xl border border-emerald-500/40 text-center text-emerald-300 font-bold">
                                     REGRESSION PREVENTION → REVIEW
                                 </div>
@@ -872,58 +833,58 @@
             </div>
         </section>
 
-        <section id="skills" class="min-h-screen flex items-center px-6 py-28 bg-slate-100/80">
+        <section id="skills" class="min-h-screen flex items-center px-6 py-28 bg-slate-900/50">
             <div class="max-w-6xl mx-auto w-full space-y-12">
                 <div class="text-center space-y-4">
-                    <div class="inline-flex items-center gap-2 text-sky-700 font-mono text-xs font-bold tracking-widest uppercase">
+                    <div class="inline-flex items-center gap-2 text-sky-400 font-mono text-xs font-bold tracking-widest uppercase">
                         <i class="fa-solid fa-sliders"></i>
                         <span>04. CAPABILITY MATRIX</span>
                     </div>
-                    <h2 class="text-3xl sm:text-5xl font-black text-slate-900">Technical & Leadership Depth</h2>
+                    <h2 class="text-3xl sm:text-5xl font-black text-slate-100">Technical & Leadership Depth</h2>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="glass-panel p-8 rounded-3xl space-y-5 border-sky-200">
-                        <h3 class="text-base font-mono font-extrabold text-sky-700 flex items-center gap-3">
+                    <div class="glass-panel p-8 rounded-3xl space-y-5 border-sky-500/30">
+                        <h3 class="text-base font-mono font-extrabold text-sky-400 flex items-center gap-3">
                             <i class="fa-solid fa-brain text-lg"></i>
                             <span>INDUSTRY KNOWLEDGE</span>
                         </h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Full-Stack Development</span>
-                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Software Implementation</span>
-                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Requirements Analysis</span>
-                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Programming</span>
-                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Web Design</span>
-                            <span class="px-3 py-1.5 bg-sky-50 text-sky-800 border border-sky-300/60 rounded-lg font-mono text-[10px] font-bold">Technical Documentation</span>
+                            <span class="px-3 py-1.5 bg-sky-500/10 text-sky-300 border border-sky-500/40/60 rounded-lg font-mono text-[10px] font-bold">Full-Stack Development</span>
+                            <span class="px-3 py-1.5 bg-sky-500/10 text-sky-300 border border-sky-500/40/60 rounded-lg font-mono text-[10px] font-bold">Software Implementation</span>
+                            <span class="px-3 py-1.5 bg-sky-500/10 text-sky-300 border border-sky-500/40/60 rounded-lg font-mono text-[10px] font-bold">Requirements Analysis</span>
+                            <span class="px-3 py-1.5 bg-sky-500/10 text-sky-300 border border-sky-500/40/60 rounded-lg font-mono text-[10px] font-bold">Programming</span>
+                            <span class="px-3 py-1.5 bg-sky-500/10 text-sky-300 border border-sky-500/40/60 rounded-lg font-mono text-[10px] font-bold">Web Design</span>
+                            <span class="px-3 py-1.5 bg-sky-500/10 text-sky-300 border border-sky-500/40/60 rounded-lg font-mono text-[10px] font-bold">Technical Documentation</span>
                         </div>
                     </div>
 
-                    <div class="glass-panel p-8 rounded-3xl space-y-5 border-indigo-200">
-                        <h3 class="text-base font-mono font-extrabold text-indigo-700 flex items-center gap-3">
+                    <div class="glass-panel p-8 rounded-3xl space-y-5 border-indigo-500/30">
+                        <h3 class="text-base font-mono font-extrabold text-indigo-300 flex items-center gap-3">
                             <i class="fa-solid fa-user-gear text-lg"></i>
                             <span>LEADERSHIP &amp; GROWTH</span>
                         </h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Project Management</span>
-                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Software Project Management</span>
-                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Project Delivery</span>
-                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Agile Methodologies</span>
-                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">JIRA</span>
-                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Google Analytics</span>
-                            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 border border-indigo-300/60 rounded-lg font-mono text-[10px] font-bold">Google Ads</span>
+                            <span class="px-3 py-1.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/40/60 rounded-lg font-mono text-[10px] font-bold">Project Management</span>
+                            <span class="px-3 py-1.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/40/60 rounded-lg font-mono text-[10px] font-bold">Software Project Management</span>
+                            <span class="px-3 py-1.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/40/60 rounded-lg font-mono text-[10px] font-bold">Project Delivery</span>
+                            <span class="px-3 py-1.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/40/60 rounded-lg font-mono text-[10px] font-bold">Agile Methodologies</span>
+                            <span class="px-3 py-1.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/40/60 rounded-lg font-mono text-[10px] font-bold">JIRA</span>
+                            <span class="px-3 py-1.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/40/60 rounded-lg font-mono text-[10px] font-bold">Google Analytics</span>
+                            <span class="px-3 py-1.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/40/60 rounded-lg font-mono text-[10px] font-bold">Google Ads</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-panel p-8 rounded-3xl border-violet-200 space-y-6">
-                    <h3 class="text-base font-mono font-extrabold text-violet-700 flex items-center gap-3">
+                <div class="glass-panel p-8 rounded-3xl border-violet-500/30 space-y-6">
+                    <h3 class="text-base font-mono font-extrabold text-violet-300 flex items-center gap-3">
                         <i class="fa-solid fa-toolbox text-lg"></i>
                         <span>TOOLS &amp; TECHNOLOGIES</span>
                     </h3>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6 font-mono text-xs">
                         <div class="space-y-2">
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Frontend</div>
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Frontend</div>
                             <div class="flex flex-wrap gap-2">
                                 <span class="chip-s">Next.js</span>
                                 <span class="chip-s">React.js</span>
@@ -936,7 +897,7 @@
                         </div>
 
                         <div class="space-y-2">
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Backend &amp; APIs</div>
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Backend &amp; APIs</div>
                             <div class="flex flex-wrap gap-2">
                                 <span class="chip-i">Golang</span>
                                 <span class="chip-i">PHP</span>
@@ -951,7 +912,7 @@
                         </div>
 
                         <div class="space-y-2">
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">APIs &amp; Data</div>
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">APIs &amp; Data</div>
                             <div class="flex flex-wrap gap-2">
                                 <span class="chip-e">REST APIs</span>
                                 <span class="chip-e">Express.js</span>
@@ -963,7 +924,7 @@
                         </div>
 
                         <div class="space-y-2">
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">DevOps &amp; Cloud</div>
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">DevOps &amp; Cloud</div>
                             <div class="flex flex-wrap gap-2">
                                 <span class="chip-v">Docker</span>
                                 <span class="chip-v">Git</span>
@@ -977,7 +938,7 @@
                         </div>
 
                         <div class="space-y-2">
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Observability</div>
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Observability</div>
                             <div class="flex flex-wrap gap-2">
                                 <span class="chip-s">Grafana</span>
                                 <span class="chip-s">Kibana</span>
@@ -985,7 +946,7 @@
                         </div>
 
                         <div class="space-y-2">
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Testing &amp; Design</div>
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Testing &amp; Design</div>
                             <div class="flex flex-wrap gap-2">
                                 <span class="chip-e">Cypress</span>
                                 <span class="chip-e">WebdriverIO</span>
@@ -1004,51 +965,51 @@
 
                 <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
                     <div class="space-y-3">
-                        <div class="inline-flex items-center gap-2 text-sky-700 font-mono text-xs font-bold tracking-widest uppercase">
+                        <div class="inline-flex items-center gap-2 text-sky-400 font-mono text-xs font-bold tracking-widest uppercase">
                             <i class="fa-solid fa-cubes"></i>
                             <span>05. DELIVERY HIGHLIGHTS</span>
                         </div>
-                        <h2 class="text-3xl sm:text-5xl font-black text-slate-900">Shipped at Every Seat — Leader · PM · Engineer</h2>
+                        <h2 class="text-3xl sm:text-5xl font-black text-slate-100">Shipped at Every Seat — Leader · PM · Engineer</h2>
                     </div>
                 </div>
 
                 <!-- 99 Group — Full-Stack Engineer Lead -->
                 <div class="reveal space-y-5">
                     <div class="flex flex-wrap items-center gap-3">
-                        <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
-                        <h3 class="text-lg font-mono font-black text-slate-900">99 Group (Rumah123) — Full-Stack Engineer Lead</h3>
-                        <span class="font-mono text-[10px] text-slate-500 font-bold">2021 — NOW</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-sky-500/100"></span>
+                        <h3 class="text-lg font-mono font-black text-slate-100">99 Group (Rumah123) — Full-Stack Engineer Lead</h3>
+                        <span class="font-mono text-[10px] text-slate-400 font-bold">2021 — NOW</span>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-bullseye text-sky-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Lead Generation &amp; Inquiries</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Features that raise property inquiries — listing enquiries, contact flows and conversion funnels.</p>
+                            <i class="fa-solid fa-bullseye text-sky-400"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Lead Generation &amp; Inquiries</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Features that raise property inquiries — listing enquiries, contact flows and conversion funnels.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-rectangle-ad text-indigo-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Ads &amp; Monetization</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Ad placement, tracking and performance systems built to maximize revenue and engagement.</p>
+                            <i class="fa-solid fa-rectangle-ad text-indigo-300"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Ads &amp; Monetization</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Ad placement, tracking and performance systems built to maximize revenue and engagement.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-magnifying-glass-chart text-emerald-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">SEO &amp; Tracking</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">User-behavior tracking, attribution and technical SEO for product insight and search visibility.</p>
+                            <i class="fa-solid fa-magnifying-glass-chart text-emerald-400"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">SEO &amp; Tracking</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">User-behavior tracking, attribution and technical SEO for product insight and search visibility.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-flask text-sky-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Test Automation</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">End-to-end testing foundations with Cypress — reusable skeletons catching regressions pre-release.</p>
+                            <i class="fa-solid fa-flask text-sky-400"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Test Automation</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">End-to-end testing foundations with Cypress — reusable skeletons catching regressions pre-release.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-gauge-high text-indigo-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Performance &amp; Codebase</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Code splitting, bundling optimization and lazy loading — plus refactoring for maintainability at scale.</p>
+                            <i class="fa-solid fa-gauge-high text-indigo-300"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Performance &amp; Codebase</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Code splitting, bundling optimization and lazy loading — plus refactoring for maintainability at scale.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-robot text-emerald-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">AI-Assisted Development</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">AI agents for task breakdown, code generation, testing and regression prevention across the workflow.</p>
+                            <i class="fa-solid fa-robot text-emerald-400"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">AI-Assisted Development</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">AI agents for task breakdown, code generation, testing and regression prevention across the workflow.</p>
                         </div>
                     </div>
                 </div>
@@ -1056,30 +1017,30 @@
                 <!-- Smooets — Team Leader → IT Project Manager (EM) -->
                 <div class="reveal space-y-5">
                     <div class="flex flex-wrap items-center gap-3">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                        <h3 class="text-lg font-mono font-black text-slate-900">PT Smooets — Team Leader → IT Project Manager (EM)</h3>
-                        <span class="font-mono text-[10px] text-slate-500 font-bold">2014 — 2021</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/100"></span>
+                        <h3 class="text-lg font-mono font-black text-slate-100">PT Smooets — Team Leader → IT Project Manager (EM)</h3>
+                        <span class="font-mono text-[10px] text-slate-400 font-bold">2014 — 2021</span>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-people-group text-emerald-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Flawless Execution</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Coordinated internal resources and vendors across simultaneous projects.</p>
+                            <i class="fa-solid fa-people-group text-emerald-400"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Flawless Execution</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Coordinated internal resources and vendors across simultaneous projects.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-calendar-check text-emerald-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">On-Time · In-Scope · On-Budget</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Every project delivered within the triple constraint.</p>
+                            <i class="fa-solid fa-calendar-check text-emerald-400"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">On-Time · In-Scope · On-Budget</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Every project delivered within the triple constraint.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-comments text-emerald-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Client Communication</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Ran client meetings and translated requirements into buildable concepts.</p>
+                            <i class="fa-solid fa-comments text-emerald-400"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Client Communication</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Ran client meetings and translated requirements into buildable concepts.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-users-gear text-emerald-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Leading FE Developers</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Managed front-end developers and kept results true to the prototype.</p>
+                            <i class="fa-solid fa-users-gear text-emerald-400"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Leading FE Developers</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Managed front-end developers and kept results true to the prototype.</p>
                         </div>
                     </div>
                 </div>
@@ -1087,42 +1048,42 @@
                 <!-- WGS — Developer → Lead Developer -->
                 <div class="reveal space-y-5">
                     <div class="flex flex-wrap items-center gap-3">
-                        <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
-                        <h3 class="text-lg font-mono font-black text-slate-900">PT Walden Global Services — Developer → Lead Developer</h3>
-                        <span class="font-mono text-[10px] text-slate-500 font-bold">2013 — 2016</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-indigo-500/100"></span>
+                        <h3 class="text-lg font-mono font-black text-slate-100">PT Walden Global Services — Developer → Lead Developer</h3>
+                        <span class="font-mono text-[10px] text-slate-400 font-bold">2013 — 2016</span>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-building text-indigo-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Enterprise Websites</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Developed front-end and back-end Drupal &amp; Laravel websites.</p>
+                            <i class="fa-solid fa-building text-indigo-300"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Enterprise Websites</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Developed front-end and back-end Drupal &amp; Laravel websites.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-lightbulb text-indigo-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Solutions &amp; Estimates</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Proposed project solutions and estimated delivery timelines as lead.</p>
+                            <i class="fa-solid fa-lightbulb text-indigo-300"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Solutions &amp; Estimates</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Proposed project solutions and estimated delivery timelines as lead.</p>
                         </div>
                         <div class="glass-card p-5 rounded-2xl space-y-2">
-                            <i class="fa-solid fa-file-lines text-indigo-600"></i>
-                            <h4 class="text-sm font-bold text-slate-900 font-mono">Documentation</h4>
-                            <p class="text-slate-600 text-xs leading-relaxed">Wrote technical documentation and user guides for every build.</p>
+                            <i class="fa-solid fa-file-lines text-indigo-300"></i>
+                            <h4 class="text-sm font-bold text-slate-100 font-mono">Documentation</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">Wrote technical documentation and user guides for every build.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Early engineering archive -->
-                <div class="space-y-6 pt-4 border-t border-slate-200">
-                    <h3 class="text-base font-mono font-black text-slate-900 flex items-center gap-3">
+                <div class="space-y-6 pt-4 border-t border-slate-700">
+                    <h3 class="text-base font-mono font-black text-slate-100 flex items-center gap-3">
                         <i class="fa-solid fa-box-archive text-slate-400"></i>
                         <span>// EARLY ENGINEERING ARCHIVE — 2012–2017</span>
                     </h3>
 
                     <div id="project-tabs" class="flex flex-wrap gap-2 font-mono text-xs font-bold">
-                        <button class="proj-tab active px-5 py-2.5 rounded-full glass-panel border-sky-500 text-sky-700 bg-sky-50 shadow-md transition-all" data-filter="all">ALL</button>
-                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-filter="php">PHP &amp; LARAVEL</button>
-                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-filter="cms">CMS &amp; DRUPAL</button>
-                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-filter="js">JS &amp; ANGULAR</button>
-                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-600 hover:text-sky-600 transition-all" data-filter="classic">CLASSIC</button>
+                        <button class="proj-tab active px-5 py-2.5 rounded-full glass-panel border-sky-500 text-sky-400 bg-sky-500/10 shadow-md transition-all" data-filter="all">ALL</button>
+                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-400 hover:text-sky-400 transition-all" data-filter="php">PHP &amp; LARAVEL</button>
+                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-400 hover:text-sky-400 transition-all" data-filter="cms">CMS &amp; DRUPAL</button>
+                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-400 hover:text-sky-400 transition-all" data-filter="js">JS &amp; ANGULAR</button>
+                        <button class="proj-tab px-5 py-2.5 rounded-full glass-panel text-slate-400 hover:text-sky-400 transition-all" data-filter="classic">CLASSIC</button>
                     </div>
                 </div>
 
@@ -1130,253 +1091,253 @@
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="js">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">JUL 2017 — DEC 2017</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">JUL 2017 — DEC 2017</span>
                             <i class="fa-solid fa-building text-sky-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Property Management Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Full property management platform with analytics — concept to delivery at Smooets.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Property Management Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Full property management platform with analytics — concept to delivery at Smooets.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">Angular 2.0</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">REST API</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">D3.js</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">PrimeNG</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">Angular 2.0</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">REST API</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">D3.js</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">PrimeNG</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">JUN 2016 — JUN 2017</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">JUN 2016 — JUN 2017</span>
                             <i class="fa-solid fa-camera text-emerald-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Photo Studio Management</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Studio operations system that talks to physical equipment over COM Port — software meeting hardware.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Photo Studio Management</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Studio operations system that talks to physical equipment over COM Port — software meeting hardware.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">Laravel 5.2</span>
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">MySQL</span>
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">COM Port</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">Laravel 5.2</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">MySQL</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">COM Port</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">JAN 2017 — MAR 2017</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">JAN 2017 — MAR 2017</span>
                             <i class="fa-solid fa-chart-line text-indigo-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Fintech Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Financial data platform with interactive charting and memory caching for fast dashboards.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Fintech Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Financial data platform with interactive charting and memory caching for fast dashboards.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">Laravel 5.1</span>
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">MongoDB</span>
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">Highcharts</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">Laravel 5.1</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">MongoDB</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">Highcharts</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">APR 2017 — MAY 2017</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">APR 2017 — MAY 2017</span>
                             <i class="fa-solid fa-palette text-indigo-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Artist &amp; Cultural Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Artist and cultural content site built on Drupal 7 at Smooets.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Artist &amp; Cultural Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Artist and cultural content site built on Drupal 7 at Smooets.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">Drupal 7</span>
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">MySQL</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">Drupal 7</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">MySQL</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">JAN 2017 — MAR 2017</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">JAN 2017 — MAR 2017</span>
                             <i class="fa-solid fa-dumbbell text-emerald-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Urban Fitness Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Fitness brand website built on Drupal 7 at Smooets.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Urban Fitness Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Fitness brand website built on Drupal 7 at Smooets.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">Drupal 7</span>
-                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">MySQL</span>
+                            <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded font-mono text-[10px] font-bold">Drupal 7</span>
+                            <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded font-mono text-[10px] font-bold">MySQL</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">MAY 2016 — PRESENT</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">MAY 2016 — PRESENT</span>
                             <i class="fa-solid fa-bolt text-sky-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Flash Sale Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">WordPress flash-sale site with custom theming for campaign-driven commerce.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Flash Sale Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">WordPress flash-sale site with custom theming for campaign-driven commerce.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">WordPress</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">jQuery</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">MySQL</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">WordPress</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">jQuery</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">MySQL</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">MAY 2015 — JUN 2016</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">MAY 2015 — JUN 2016</span>
                             <i class="fa-solid fa-tractor text-sky-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Industrial Tractors Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Heavy equipment showcase site built on Drupal 7 at WGS.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Industrial Tractors Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Heavy equipment showcase site built on Drupal 7 at WGS.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">Drupal 7</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">Drupal 7</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">jQuery</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">OCT 2015 — JUN 2016</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">OCT 2015 — JUN 2016</span>
                             <i class="fa-solid fa-screwdriver-wrench text-emerald-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Service Center Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Service center management site built on Laravel 4 at Walden Global Services.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Service Center Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Service center management site built on Laravel 4 at Walden Global Services.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">Laravel 4</span>
-                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                            <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded font-mono text-[10px] font-bold">Laravel 4</span>
+                            <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded font-mono text-[10px] font-bold">jQuery</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">JAN 2016 — FEB 2016</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">JAN 2016 — FEB 2016</span>
                             <i class="fa-solid fa-gem text-violet-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Luxury Curator Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Curated luxury goods site with PostgreSQL under the hood.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Luxury Curator Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Curated luxury goods site with PostgreSQL under the hood.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-violet-50 text-violet-700 border border-violet-200 rounded font-mono text-[10px] font-bold">CakePHP 2.0</span>
-                            <span class="px-2 py-0.5 bg-violet-50 text-violet-700 border border-violet-200 rounded font-mono text-[10px] font-bold">PostgreSQL</span>
+                            <span class="px-2 py-0.5 bg-violet-500/10 text-violet-300 border border-violet-500/30 rounded font-mono text-[10px] font-bold">CakePHP 2.0</span>
+                            <span class="px-2 py-0.5 bg-violet-500/10 text-violet-300 border border-violet-500/30 rounded font-mono text-[10px] font-bold">PostgreSQL</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">NOV 2015 — PRESENT</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">NOV 2015 — PRESENT</span>
                             <i class="fa-solid fa-ticket text-indigo-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Ticketing Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Support ticketing built on osTicket, customized with jQuery to fit the workflow.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Ticketing Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Support ticketing built on osTicket, customized with jQuery to fit the workflow.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">osTicket</span>
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">osTicket</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">jQuery</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">AUG 2014 — OCT 2015</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">AUG 2014 — OCT 2015</span>
                             <i class="fa-solid fa-globe text-sky-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">UT Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Drupal 7 + jQuery website delivered at WGS.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">UT Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Drupal 7 + jQuery website delivered at WGS.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">Drupal 7</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">Drupal 7</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">jQuery</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">FEB 2014 — JUN 2014</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">FEB 2014 — JUN 2014</span>
                             <i class="fa-solid fa-rocket text-indigo-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">ENGIZED</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Platform built on the CodeIgniter framework with jQuery at WGS.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">ENGIZED</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Platform built on the CodeIgniter framework with jQuery at WGS.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">CodeIgniter</span>
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">CodeIgniter</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">jQuery</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="classic">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">JUN 2014 — JUL 2014</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">JUN 2014 — JUL 2014</span>
                             <i class="fa-solid fa-briefcase text-sky-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Company Profile for Crapes</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Company profile website showcasing modern crapes products.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Company Profile for Crapes</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Company profile website showcasing modern crapes products.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 rounded font-mono text-[10px] font-bold">HTML</span>
-                            <span class="px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 rounded font-mono text-[10px] font-bold">CSS</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700 rounded font-mono text-[10px] font-bold">HTML</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700 rounded font-mono text-[10px] font-bold">CSS</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">DES 2013 — JAN 2014</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">DES 2013 — JAN 2014</span>
                             <i class="fa-solid fa-newspaper text-indigo-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">News Portal Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">News portal covering sport, lifestyle, business and entertainment categories.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">News Portal Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">News portal covering sport, lifestyle, business and entertainment categories.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">CMS</span>
-                            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded font-mono text-[10px] font-bold">Web</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">CMS</span>
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded font-mono text-[10px] font-bold">Web</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="cms">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">SEP 2013 — DES 2013</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">SEP 2013 — DES 2013</span>
                             <i class="fa-solid fa-database text-violet-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Wapstore CMS</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Backend CMS to manage content on the front-end page, mobile applications and payments.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Wapstore CMS</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Backend CMS to manage content on the front-end page, mobile applications and payments.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-violet-50 text-violet-700 border border-violet-200 rounded font-mono text-[10px] font-bold">CMS</span>
-                            <span class="px-2 py-0.5 bg-violet-50 text-violet-700 border border-violet-200 rounded font-mono text-[10px] font-bold">Backend</span>
+                            <span class="px-2 py-0.5 bg-violet-500/10 text-violet-300 border border-violet-500/30 rounded font-mono text-[10px] font-bold">CMS</span>
+                            <span class="px-2 py-0.5 bg-violet-500/10 text-violet-300 border border-violet-500/30 rounded font-mono text-[10px] font-bold">Backend</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="js">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">SEP 2013 — PRESENT</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">SEP 2013 — PRESENT</span>
                             <i class="fa-solid fa-window-maximize text-sky-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Promotion Theme</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Flat-design HTML5/CSS3 theme with custom jQuery — inspired by the Windows 8 look.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Promotion Theme</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Flat-design HTML5/CSS3 theme with custom jQuery — inspired by the Windows 8 look.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">CSS3</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">HTML5</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">CSS3</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">HTML5</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">jQuery</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">RESTAURANT</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">RESTAURANT</span>
                             <i class="fa-solid fa-utensils text-emerald-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Restaurant Website</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">CodeIgniter restaurant site with admin pages built on Twitter Bootstrap.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Restaurant Website</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">CodeIgniter restaurant site with admin pages built on Twitter Bootstrap.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">CodeIgniter</span>
-                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-mono text-[10px] font-bold">Bootstrap</span>
+                            <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded font-mono text-[10px] font-bold">CodeIgniter</span>
+                            <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded font-mono text-[10px] font-bold">Bootstrap</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="php">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">JAN 2013 — FEB 2013</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">JAN 2013 — FEB 2013</span>
                             <i class="fa-solid fa-utensils text-sky-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Website Kayyani Reztco</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Native PHP + jQuery website built while at SMK Negeri 4 Bandung.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Website Kayyani Reztco</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Native PHP + jQuery website built while at SMK Negeri 4 Bandung.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">Native PHP</span>
-                            <span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded font-mono text-[10px] font-bold">jQuery</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">Native PHP</span>
+                            <span class="px-2 py-0.5 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded font-mono text-[10px] font-bold">jQuery</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="classic">
                         <div class="flex items-center justify-between">
-                            <span class="font-mono text-[10px] text-slate-500 font-bold">JAN 2012 — PRESENT</span>
+                            <span class="font-mono text-[10px] text-slate-400 font-bold">JAN 2012 — PRESENT</span>
                             <i class="fa-solid fa-train text-violet-500"></i>
                         </div>
-                        <h3 class="text-base font-extrabold text-slate-900">Booking &amp; Bidding Application</h3>
-                        <p class="text-slate-600 text-xs leading-relaxed">Desktop app regulating goods purchase and auctions for PT Kereta Api Indonesia — my first shipped software.</p>
+                        <h3 class="text-base font-extrabold text-slate-100">Booking &amp; Bidding Application</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Desktop app regulating goods purchase and auctions for PT Kereta Api Indonesia — my first shipped software.</p>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-violet-50 text-violet-700 border border-violet-200 rounded font-mono text-[10px] font-bold">Visual Basic 6.0</span>
+                            <span class="px-2 py-0.5 bg-violet-500/10 text-violet-300 border border-violet-500/30 rounded font-mono text-[10px] font-bold">Visual Basic 6.0</span>
                         </div>
                     </div>
 
@@ -1403,24 +1364,24 @@
                 <!-- Terminal Output Container -->
                 <div id="terminal-output" class="p-4 flex-1 overflow-y-auto font-mono text-xs space-y-3 text-slate-300">
                     <div class="text-sky-400 font-bold">// Advanced Co-pilot ready — natural language enabled.</div>
-                    <div class="text-slate-500">Ask me anything about Padrin's career — e.g. "why hire you?", "current role", "projects", "tech stack", "award", "contact". Slash commands still work.</div>
+                    <div class="text-slate-400">Ask me anything about Padrin's career — e.g. "why hire you?", "current role", "projects", "tech stack", "award", "contact". Slash commands still work.</div>
                 </div>
 
                 <!-- Terminal Quick Action Chips -->
                 <div class="p-2 bg-slate-950/80 border-t border-slate-800 flex flex-wrap gap-2 text-[10px] font-mono font-bold">
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/20 rounded-md">Why hire you?</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-indigo-300 hover:bg-indigo-500/20 rounded-md">Current role</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-emerald-300 hover:bg-emerald-500/20 rounded-md">Projects</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-violet-300 hover:bg-violet-500/20 rounded-md">Tech stack</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/100/20 rounded-md">Why hire you?</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-indigo-300 hover:bg-indigo-500/100/20 rounded-md">Current role</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-emerald-300 hover:bg-emerald-500/100/20 rounded-md">Projects</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-violet-300 hover:bg-violet-500/100/20 rounded-md">Tech stack</button>
                     <button class="term-chip px-2.5 py-1 bg-slate-800 text-amber-300 hover:bg-amber-500/20 rounded-md">Award</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/20 rounded-md">Contact</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/100/20 rounded-md">Contact</button>
                 </div>
 
                 <!-- Terminal Input Bar -->
                 <form id="terminal-form" class="p-3 bg-slate-950 border-t border-slate-800 flex items-center gap-2">
                     <span class="text-sky-400 font-mono text-xs">&gt;</span>
                     <input type="text" id="terminal-input" placeholder="Type query command..." class="flex-1 bg-transparent font-mono text-xs text-white focus:outline-none">
-                    <button type="submit" class="px-3 py-1 bg-sky-500 text-white font-mono text-xs font-bold rounded hover:bg-sky-400">
+                    <button type="submit" class="px-3 py-1 bg-sky-500/100 text-white font-mono text-xs font-bold rounded hover:bg-sky-400">
                         EXECUTE
                     </button>
                 </form>
@@ -1428,33 +1389,33 @@
         </div>
 
         <!-- Contact Section -->
-        <section id="contact" class="min-h-screen flex items-center px-6 py-28 bg-slate-100/90">
+        <section id="contact" class="min-h-screen flex items-center px-6 py-28 bg-slate-900/50">
             <div class="max-w-4xl mx-auto w-full space-y-12">
 
                 <div class="text-center space-y-4">
-                    <div class="inline-flex items-center gap-2 text-sky-700 font-mono text-xs font-bold tracking-widest uppercase">
+                    <div class="inline-flex items-center gap-2 text-sky-400 font-mono text-xs font-bold tracking-widest uppercase">
                         <i class="fa-solid fa-paper-plane"></i>
                         <span>06. GET IN TOUCH</span>
                     </div>
-                    <h2 class="text-3xl sm:text-5xl font-black text-slate-900">Let's Build Something That Ships</h2>
+                    <h2 class="text-3xl sm:text-5xl font-black text-slate-100">Let's Build Something That Ships</h2>
                 </div>
 
-                <div class="glass-panel p-8 sm:p-12 rounded-3xl border-sky-300 shadow-2xl">
+                <div class="glass-panel p-8 sm:p-12 rounded-3xl border-sky-500/40 shadow-2xl">
                     <form id="contact-form" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="space-y-2 font-mono text-xs font-bold">
-                                <label class="text-slate-800">FULL NAME *</label>
-                                <input type="text" id="cf-name" required placeholder="Your name" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm">
+                                <label class="text-slate-200">FULL NAME *</label>
+                                <input type="text" id="cf-name" required placeholder="Your name" class="w-full px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-600 text-slate-100 focus:outline-none focus:border-sky-400 transition-colors shadow-sm">
                             </div>
                             <div class="space-y-2 font-mono text-xs font-bold">
-                                <label class="text-slate-800">EMAIL *</label>
-                                <input type="email" id="cf-email" required placeholder="you@company.com" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm">
+                                <label class="text-slate-200">EMAIL *</label>
+                                <input type="email" id="cf-email" required placeholder="you@company.com" class="w-full px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-600 text-slate-100 focus:outline-none focus:border-sky-400 transition-colors shadow-sm">
                             </div>
                         </div>
 
                         <div class="space-y-2 font-mono text-xs font-bold">
-                            <label class="text-slate-800">ENGAGEMENT TYPE</label>
-                            <select id="cf-type" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm">
+                            <label class="text-slate-200">ENGAGEMENT TYPE</label>
+                            <select id="cf-type" class="w-full px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-600 text-slate-100 focus:outline-none focus:border-sky-400 transition-colors shadow-sm">
                                 <option>Full-Time Role (Senior / Lead Engineer)</option>
                                 <option>IT Management Role</option>
                                 <option>Project & Consulting Work</option>
@@ -1463,8 +1424,8 @@
                         </div>
 
                         <div class="space-y-2 font-mono text-xs font-bold">
-                            <label class="text-slate-800">MESSAGE *</label>
-                            <textarea id="cf-message" rows="4" required placeholder="Tell me about the platform, the team, or the role..." class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-sky-600 transition-colors shadow-sm"></textarea>
+                            <label class="text-slate-200">MESSAGE *</label>
+                            <textarea id="cf-message" rows="4" required placeholder="Tell me about the platform, the team, or the role..." class="w-full px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-600 text-slate-100 focus:outline-none focus:border-sky-400 transition-colors shadow-sm"></textarea>
                         </div>
 
                         <button type="submit" class="btn-sfx w-full py-4 rounded-xl bg-gradient-to-r from-sky-600 via-indigo-600 to-blue-600 text-white font-mono text-xs font-extrabold tracking-widest uppercase transition-all hover:shadow-xl hover:shadow-sky-500/30">
@@ -1472,32 +1433,32 @@
                         </button>
                     </form>
 
-                    <div id="contact-alert" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-mono font-bold text-center">
+                    <div id="contact-alert" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold text-center">
                         <i class="fa-brands fa-whatsapp mr-2"></i> Opening WhatsApp with your message — just press send there.
                     </div>
 
-                    <div class="mt-6 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs font-bold">
-                        <span class="text-slate-500">PREFER DIRECT?</span>
+                    <div class="mt-6 pt-6 border-t border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs font-bold">
+                        <span class="text-slate-400">PREFER DIRECT?</span>
                         <div class="flex flex-wrap items-center gap-4">
-                            <a href="https://wa.me/6285624403415" target="_blank" rel="noopener" class="text-emerald-700 hover:text-emerald-600 transition-colors"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</a>
-                            <a href="mailto:padrinpanji@gmail.com" class="text-sky-700 hover:text-sky-600 transition-colors"><i class="fa-solid fa-envelope mr-2"></i>padrinpanji@gmail.com</a>
-                            <a href="https://www.linkedin.com/in/r-padrin-panji-sasmito-2a592043" target="_blank" rel="noopener" class="text-indigo-700 hover:text-sky-600 transition-colors"><i class="fa-brands fa-linkedin mr-2"></i>LinkedIn</a>
-                            <a href="https://github.com/padrinpanji" target="_blank" rel="noopener" class="text-slate-700 hover:text-sky-600 transition-colors"><i class="fa-brands fa-github mr-2"></i>GitHub</a>
+                            <a href="https://wa.me/6285624403415" target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-400 transition-colors"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</a>
+                            <a href="mailto:padrinpanji@gmail.com" class="text-sky-400 hover:text-sky-400 transition-colors"><i class="fa-solid fa-envelope mr-2"></i>padrinpanji@gmail.com</a>
+                            <a href="https://www.linkedin.com/in/r-padrin-panji-sasmito-2a592043" target="_blank" rel="noopener" class="text-indigo-300 hover:text-sky-400 transition-colors"><i class="fa-brands fa-linkedin mr-2"></i>LinkedIn</a>
+                            <a href="https://github.com/padrinpanji" target="_blank" rel="noopener" class="text-slate-300 hover:text-sky-400 transition-colors"><i class="fa-brands fa-github mr-2"></i>GitHub</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Footer -->
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs font-bold text-slate-500 pt-8 border-t border-slate-300">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs font-bold text-slate-400 pt-8 border-t border-slate-600">
                 <div class="flex flex-col items-center sm:items-start gap-1.5">
                     <div class="whitespace-nowrap">© 2026 PADRIN PANJI SASMITO // BANDUNG, INDONESIA</div>
                     <div class="whitespace-nowrap text-sm tracking-widest bg-gradient-to-r from-sky-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">— NO RISK, NO STORY —</div>
                 </div>
                 <div class="text-[10px] font-normal text-slate-400 text-center sm:text-right">Project details are kept high-level to respect client &amp; employer confidentiality.</div>
-                    <div class="flex items-center gap-6 text-slate-700 text-base">
-                        <a href="https://github.com/padrinpanji" target="_blank" rel="noopener" aria-label="GitHub Profile" class="hover:text-sky-600 transition-colors"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/r-padrin-panji-sasmito-2a592043" target="_blank" rel="noopener" aria-label="LinkedIn Profile" class="hover:text-sky-600 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="mailto:padrinpanji@gmail.com" aria-label="Email" class="hover:text-sky-600 transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                    <div class="flex items-center gap-6 text-slate-300 text-base">
+                        <a href="https://github.com/padrinpanji" target="_blank" rel="noopener" aria-label="GitHub Profile" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/r-padrin-panji-sasmito-2a592043" target="_blank" rel="noopener" aria-label="LinkedIn Profile" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="mailto:padrinpanji@gmail.com" aria-label="Email" class="hover:text-sky-400 transition-colors"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
 
@@ -1816,7 +1777,7 @@
                 audioSynth.enabled = !audioSynth.enabled;
                 if (audioSynth.enabled) {
                     audioSynth.init();
-                    audioIcon.className = "fa-solid fa-volume-high text-sky-600";
+                    audioIcon.className = "fa-solid fa-volume-high text-sky-400";
                     audioText.textContent = "SFX ON";
                     audioSynth.playBeep(800, 0.08);
                 } else {
@@ -1846,10 +1807,10 @@
                 tab.addEventListener('click', () => {
                     audioSynth.playSwoosh();
                     archTabs.forEach(t => {
-                        t.classList.remove('active', 'border-sky-500', 'text-sky-700', 'bg-sky-50', 'shadow-md');
-                        t.classList.add('text-slate-600');
+                        t.classList.remove('active', 'border-sky-500', 'text-sky-400', 'bg-sky-500/10', 'shadow-md');
+                        t.classList.add('text-slate-400');
                     });
-                    tab.classList.add('active', 'border-sky-500', 'text-sky-700', 'bg-sky-50', 'shadow-md');
+                    tab.classList.add('active', 'border-sky-500', 'text-sky-400', 'bg-sky-500/10', 'shadow-md');
 
                     const target = tab.getAttribute('data-target');
                     archContents.forEach(content => {
@@ -1956,7 +1917,7 @@
                 termOutput.appendChild(userLine);
 
                 const think = document.createElement('div');
-                think.className = 'text-slate-500';
+                think.className = 'text-slate-400';
                 think.textContent = '● analyzing…';
                 termOutput.appendChild(think);
                 termOutput.scrollTop = termOutput.scrollHeight;
@@ -2019,10 +1980,10 @@
                 tab.addEventListener('click', () => {
                     audioSynth.playSwoosh();
                     projTabs.forEach(t => {
-                        t.classList.remove('active', 'border-sky-500', 'text-sky-700', 'bg-sky-50', 'shadow-md');
-                        t.classList.add('text-slate-600');
+                        t.classList.remove('active', 'border-sky-500', 'text-sky-400', 'bg-sky-500/10', 'shadow-md');
+                        t.classList.add('text-slate-400');
                     });
-                    tab.classList.add('active', 'border-sky-500', 'text-sky-700', 'bg-sky-50', 'shadow-md');
+                    tab.classList.add('active', 'border-sky-500', 'text-sky-400', 'bg-sky-500/10', 'shadow-md');
 
                     const filter = tab.getAttribute('data-filter');
                     projCards.forEach(card => {
