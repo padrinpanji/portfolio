@@ -231,6 +231,23 @@
             }
         }
 
+        /* Co-pilot thinking dots */
+        .copilot-thinking span {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            margin-left: 4px;
+            border-radius: 50%;
+            background: #38bdf8;
+            animation: copilotBlink 1s infinite;
+        }
+        .copilot-thinking span:nth-child(2) { animation-delay: 0.18s; }
+        .copilot-thinking span:nth-child(3) { animation-delay: 0.36s; }
+        @keyframes copilotBlink {
+            0%, 80%, 100% { opacity: 0.15; transform: scale(0.8); }
+            40% { opacity: 1; transform: scale(1.15); }
+        }
+
         ::-webkit-scrollbar-track { background: #182335; }
         ::-webkit-scrollbar-thumb { background: #283548; }
         ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
@@ -458,7 +475,7 @@
                     </button>
 
                     <!-- AI Terminal Toggle Button -->
-                    <button id="terminal-toggle" aria-label="Toggle AI Co-pilot" class="px-3.5 py-2 rounded-full glass-panel text-sky-400 bg-sky-500/10/80 border-sky-500/40 font-mono text-xs flex items-center gap-2 hover:bg-sky-500/100/15 transition-all shadow-sm">
+                    <button id="terminal-toggle" aria-label="Toggle AI Co-pilot" class="px-3.5 py-2 rounded-full glass-panel text-sky-400 bg-sky-500/10/80 border-sky-500/40 font-mono text-xs flex items-center gap-2 hover:bg-sky-500/15 transition-all shadow-sm">
                         <i class="fa-solid fa-terminal text-xs text-sky-400"></i>
                         <span class="hidden sm:inline text-[10px] font-bold">CO-PILOT</span>
                     </button>
@@ -567,7 +584,7 @@
                     <!-- Key Strategic Pillars -->
                     <div class="space-y-4 pt-2">
                         <div class="glass-card p-5 rounded-2xl flex items-start gap-4">
-                            <div class="p-3 bg-sky-500/100/10 rounded-xl text-sky-400 text-lg flex-shrink-0">
+                            <div class="p-3 bg-sky-500/10 rounded-xl text-sky-400 text-lg flex-shrink-0">
                                 <i class="fa-solid fa-bullseye"></i>
                             </div>
                             <div>
@@ -577,7 +594,7 @@
                         </div>
 
                         <div class="glass-card p-5 rounded-2xl flex items-start gap-4">
-                            <div class="p-3 bg-indigo-500/100/10 rounded-xl text-indigo-300 text-lg flex-shrink-0">
+                            <div class="p-3 bg-indigo-500/10 rounded-xl text-indigo-300 text-lg flex-shrink-0">
                                 <i class="fa-solid fa-layer-group"></i>
                             </div>
                             <div>
@@ -587,7 +604,7 @@
                         </div>
 
                         <div class="glass-card p-5 rounded-2xl flex items-start gap-4">
-                            <div class="p-3 bg-emerald-500/100/10 rounded-xl text-emerald-400 text-lg flex-shrink-0">
+                            <div class="p-3 bg-emerald-500/10 rounded-xl text-emerald-400 text-lg flex-shrink-0">
                                 <i class="fa-solid fa-robot"></i>
                             </div>
                             <div>
@@ -754,7 +771,7 @@
                     <!-- Web Platform Blueprint -->
                     <div id="arch-web" class="arch-content hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-6">
-                            <span class="px-3 py-1 bg-sky-500/100/15 text-sky-300 border border-sky-500/40 rounded-full font-mono text-xs font-bold">
+                            <span class="px-3 py-1 bg-sky-500/15 text-sky-300 border border-sky-500/40 rounded-full font-mono text-xs font-bold">
                                 FEATURED PLAYBOOK
                             </span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-100">Lead-Generation Web Platform</h3>
@@ -821,7 +838,7 @@
                     <!-- Quality Blueprint -->
                     <div id="arch-quality" class="arch-content hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-6">
-                            <span class="px-3 py-1 bg-indigo-500/100/15 text-indigo-300 border border-indigo-500/40 rounded-full font-mono text-xs font-bold">
+                            <span class="px-3 py-1 bg-indigo-500/15 text-indigo-300 border border-indigo-500/40 rounded-full font-mono text-xs font-bold">
                                 QUALITY & PERFORMANCE
                             </span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-100">E2E Quality & Speed Mesh</h3>
@@ -855,7 +872,7 @@
                     <!-- AI Workflow Blueprint -->
                     <div id="arch-ai" class="arch-content grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-6">
-                            <span class="px-3 py-1 bg-emerald-500/100/15 text-emerald-300 border border-emerald-500/40 rounded-full font-mono text-xs font-bold">
+                            <span class="px-3 py-1 bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 rounded-full font-mono text-xs font-bold">
                                 AI-ASSISTED DEVELOPMENT
                             </span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-100">The AI-Augmented Workflow</h3>
@@ -1423,18 +1440,18 @@
 
                 <!-- Terminal Output Container -->
                 <div id="terminal-output" class="p-4 flex-1 overflow-y-auto font-mono text-xs space-y-3 text-slate-300">
-                    <div class="text-sky-400 font-bold">// Advanced Co-pilot ready — natural language enabled.</div>
-                    <div class="text-slate-400">Ask me anything about Padrin's career — e.g. "why hire you?", "current role", "projects", "tech stack", "award", "contact". Slash commands still work.</div>
+                    <div class="text-sky-400 font-bold">// Padrin Co-pilot v4.1 — natural language, follow-up suggestions, streaming answers.</div>
+                    <div class="text-slate-400">Ask anything — "why hire you?", "current role", "projects", "award". I suggest smart follow-ups after every answer. Use <span class="text-sky-400">↑/↓</span> for history or /commands.</div>
                 </div>
 
                 <!-- Terminal Quick Action Chips -->
                 <div class="p-2 bg-slate-950/80 border-t border-slate-800 flex flex-wrap gap-2 text-[10px] font-mono font-bold">
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/100/20 rounded-md">Why hire you?</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-indigo-300 hover:bg-indigo-500/100/20 rounded-md">Current role</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-emerald-300 hover:bg-emerald-500/100/20 rounded-md">Projects</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-violet-300 hover:bg-violet-500/100/20 rounded-md">Tech stack</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/20 rounded-md">Why hire you?</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-indigo-300 hover:bg-indigo-500/20 rounded-md">Current role</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-emerald-300 hover:bg-emerald-500/20 rounded-md">Projects</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-violet-300 hover:bg-violet-500/20 rounded-md">Tech stack</button>
                     <button class="term-chip px-2.5 py-1 bg-slate-800 text-amber-300 hover:bg-amber-500/20 rounded-md">Award</button>
-                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/100/20 rounded-md">Contact</button>
+                    <button class="term-chip px-2.5 py-1 bg-slate-800 text-sky-300 hover:bg-sky-500/20 rounded-md">Contact</button>
                 </div>
 
                 <!-- Terminal Input Bar -->
