@@ -206,6 +206,12 @@
         ::-webkit-scrollbar-thumb { background: #283548; }
         ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
 
+        /* readability lifts — no text hides near the background */
+        .text-slate-500 { color: #8fa0b3 !important; }
+        .text-slate-400 { color: #9fb0c2 !important; }
+        .text-slate-300 { color: #b8c4d4 !important; }
+        input::placeholder, textarea::placeholder { color: #7c8aa0 !important; }
+
         /* Shimmer sweep on the role badge */
         .shimmer-badge {
             position: relative;
@@ -301,8 +307,11 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
             font-weight: 700;
-            color: #334155;
+            color: #f1f5f9;
             white-space: nowrap;
+            background: rgba(10, 16, 28, 0.97);
+            border: 1px solid rgba(56, 189, 248, 0.6);
+            box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.5);
             opacity: 0;
             transform: translateY(6px);
             transition: opacity 0.25s ease, transform 0.25s ease;
