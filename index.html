@@ -213,6 +213,24 @@
         }
         #cf-type-btn[aria-expanded="true"] i { transform: rotate(180deg); }
 
+        /* Mobile swipe rows — cards swipe left/right with snap */
+        @media (max-width: 767px) {
+            .swipe-row {
+                display: flex !important;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 0.75rem;
+                padding-bottom: 0.5rem;
+                scrollbar-width: none;
+            }
+            .swipe-row::-webkit-scrollbar { display: none; }
+            .swipe-row > * {
+                flex: 0 0 85% !important;
+                scroll-snap-align: center;
+            }
+        }
+
         ::-webkit-scrollbar-track { background: #182335; }
         ::-webkit-scrollbar-thumb { background: #283548; }
         ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
@@ -1063,7 +1081,7 @@
                         <h3 class="text-lg font-mono font-black text-slate-100">PT Smooets — Team Leader → IT Project Manager (EM)</h3>
                         <span class="font-mono text-[10px] text-slate-400 font-bold">2014 — 2021</span>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="swipe-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="glass-card p-5 rounded-2xl space-y-2">
                             <i class="fa-solid fa-people-group text-emerald-400"></i>
                             <h4 class="text-sm font-bold text-slate-100 font-mono">Flawless Execution</h4>
@@ -1094,7 +1112,7 @@
                         <h3 class="text-lg font-mono font-black text-slate-100">PT Walden Global Services — Developer → Lead Developer</h3>
                         <span class="font-mono text-[10px] text-slate-400 font-bold">2013 — 2016</span>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="swipe-row grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="glass-card p-5 rounded-2xl space-y-2">
                             <i class="fa-solid fa-building text-indigo-300"></i>
                             <h4 class="text-sm font-bold text-slate-100 font-mono">Enterprise Websites</h4>
@@ -1129,7 +1147,7 @@
                     </div>
                 </div>
 
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div id="projects-grid" class="swipe-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <div class="glass-card p-6 rounded-2xl space-y-3 proj-card" data-cat="js">
                         <div class="flex items-center justify-between">
